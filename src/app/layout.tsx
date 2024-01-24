@@ -1,8 +1,7 @@
-// layout.tsx
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import "./styles/globals.css";
+import "../styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
