@@ -1,19 +1,19 @@
 import { Metadata } from 'next'
 import Navbar from '../components/Navbar';
 import Footer from "@/components/Footer";
- 
+import Content from "@/components/Content";
+
+
 export const metadata: Metadata = {
-  title: 'My Page Title',
+  title: 'Jamel',
 }
 export default function Home() {
   return (
     <div>
       <Navbar />
-      <main>
-        {/* Obsah stránky */}
-        <h1>Vítejte na stránce</h1>
-        <p>Toto je obsah stránky.</p>
-      </main>
+
+      <Content />
+
       <Footer />
     </div>
   );

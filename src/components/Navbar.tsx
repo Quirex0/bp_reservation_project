@@ -11,10 +11,10 @@ const Navbar = () => {
       </a>
     </div>
     <div className={styles.navLinks}>
-      <a href="/">Domů</a>
-      <a href="/info">O nás</a>
       <a href="/sluzby">Služby</a>
-      <a href="/office">Pobočky</a>
+      <a href="/cenik">Ceník</a>
+      <a href="/info">O mně</a>
+      <a href="/pobocky">Provozovny</a>
       <a href="/kontakt">Kontakt</a>
     </div>
   </div>

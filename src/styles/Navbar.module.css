@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: burlywood;
+  background-color: white;
 }
 
 .logoContainer {
@@ -18,10 +18,12 @@
 
 .navLinks {
   display: flex;
+  color: #083f72;
   font-size: 20px;
   font-weight: 600;
   font-family: Arial, Helvetica, sans-serif;
   gap: 60px;
+  margin-right: 200px;
 }
 
 
@@ -31,6 +33,5 @@
 }
 
 .navLinks a:hover {
-  background-color: #1f5a91;
-  color: burlywood;
+  color: #1f5a91;
 }
