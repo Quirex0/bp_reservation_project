@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 
 const Navbar = () => {
@@ -13,7 +12,7 @@ const Navbar = () => {
     <div className={styles.navLinks}>
       <a href="/sluzby">Služby</a>
       <a href="/cenik">Ceník</a>
-      <a href="/info">O mně</a>
+      <a href="/about">O mně</a>
       <a href="/pobocky">Provozovny</a>
       <a href="/kontakt">Kontakt</a>
     </div>

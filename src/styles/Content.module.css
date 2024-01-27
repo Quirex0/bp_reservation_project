@@ -1,3 +1,7 @@
-.container{
+.main{
+    display: flex;
+    justify-content: center;
     background-color: #e4bc5e;
+    padding: 40px;
+    font-size: 40px;
 }
