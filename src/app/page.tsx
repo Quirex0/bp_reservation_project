@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
-import Navbar from '../components/Navbar';
+import Navbar from '../Components/Navbar';
 import Footer from "@/components/Footer";
 import  styles from "../styles/Content.module.css";
 
 export const metadata: Metadata = {
-  title: 'Jamel',
+  title: 'Masaze - jm',
 }
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
           <h1>Oukey letsgo</h1>
         </div>
       </main>
+
 
       <Footer />
     </div>

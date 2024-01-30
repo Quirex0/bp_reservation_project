@@ -1,12 +1,40 @@
+/* Footer.module.css */
+
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background-color: #e4bc5e;
-    color: black;
-    padding: 10px;
-    width: 100%;
-  }
-  
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4bc5e;
+  padding: 20px;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+}
+
+.copyright p {
+  margin: 0;
+  margin-right: 300px; /* Mezera mezi copyrightem a odkazy */
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #083f72;
+  transition: color 0.3s ease;
+  margin-right: 10px; /* Mezera mezi odkazy */
+}
+
+.navLinks a:hover {
+  color: #ffcc00;
+}

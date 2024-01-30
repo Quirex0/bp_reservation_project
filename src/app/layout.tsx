@@ -25,7 +25,6 @@ const Layout = ({ children, title = "Massages", description = "Your description 
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik:wght@300,400;700&display=swap"
         />
-        {/* Add any other meta tags or link tags here */}
       </Head>
       <body className={inter.className}>{children}</body>
     </>
