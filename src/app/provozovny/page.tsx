@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   title: 'Masaze-jm',
 }
 
-export default function Cenik(){
+export default function Provozovny(){
     return <div>
     <Navbar />
 
     <main className=''>
       <div>
-        <h1>Ceny nabízených služeb</h1>
+        <h1>Kde nás můžete navštívit</h1>
       </div>
     </main>
 

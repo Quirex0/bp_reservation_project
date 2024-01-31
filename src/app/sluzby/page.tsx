@@ -1,17 +1,16 @@
 import { Metadata } from 'next'
-import Navbar from "@/Components/Navbar";
-import Footer from "@/components/Footer";
-import  styles from "../../styles/Sluzby.module.css";
+import Navbar from "@/Components/Header";
+import Footer from "@/Components/Footer";
 
 export const metadata: Metadata = {
-  title: 'Masaze - jm',
+  title: 'Masaze-jm',
 }
 
-export default function Home(){
+export default function Sluzby(){
     return <div>
     <Navbar />
 
-    <main className={styles.main}>
+    <main className=''>
       <div>
         <h1>Nabízené služby</h1>
       </div>

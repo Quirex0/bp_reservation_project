@@ -1,19 +1,18 @@
 import { Metadata } from 'next'
-import Navbar from '../Components/Navbar';
-import Footer from "@/components/Footer";
-import  styles from "../styles/Content.module.css";
+import Header from '../Components/Header';
+import Footer from "@/Components/Footer";
 
 export const metadata: Metadata = {
-  title: 'Masaze - jm',
+  title: 'Masaze-jm',
 }
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      <Header />
 
-      <main className={styles.main}>
+      <main className='flex justify-center items-center p-2 mb-4 bg-amber-200'>
         <div>
-          <h1>Oukey letsgo</h1>
+          <h1 className='text-6xl font-medium'>Oukey letsgo</h1>
         </div>
       </main>
 

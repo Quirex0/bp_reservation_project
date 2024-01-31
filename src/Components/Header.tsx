@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Footer = () => {
+const Header = () => {
   return (
-    <div className='w-full'>
-      <div className=' flex justify-center items-center bg-amber-200'>
-        <div className=''>
-          <p>
-            Copyright &copy; {new Date().getFullYear()} Jitka Moučková <br />
-          </p>
-        </div>
-
-        <div className="flex justify-evenly items-start">
+    <header className=" sticky top-0 z-[20] mx-auto flex w-full items-center justify-between p-8">
+    <div className="flex justify-between items-center p-2 mb-4">
+    <div className="mr-5">
+      <a href="/">
+        <img className="h-24 w-24" src="/logo.jpg" alt="Logo" />
+      </a>
+    </div>
+    <div className="flex justify-evenly items-start">
           <Link  
           className="p-3 m-5 rounded-xl hover:bg-slate-400 focus-within:bg-slate-800 outline-none" 
           href="/sluzby">
@@ -38,8 +37,7 @@ const Footer = () => {
             <p>Kontakt</p>
           </Link>
         </div>
-      </div>
-    </div>
-  );
+  </div></header>
+);
 };
-export default Footer;
+export default Header;
