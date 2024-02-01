@@ -13,7 +13,7 @@ type LayoutProps = {
 
 const Layout = ({ children, title = "Massages", description = "Your description here" }: LayoutProps) => {
   return (
-    <>
+    <html>
       <Head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -27,7 +27,7 @@ const Layout = ({ children, title = "Massages", description = "Your description 
         />
       </Head>
       <body className={inter.className}>{children}</body>
-    </>
+    </html>
   );
 };
 

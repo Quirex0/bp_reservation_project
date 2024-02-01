@@ -14,6 +14,7 @@ const Navbar = () => {
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
+    console.log(isOpen)
   };
 
   return (
