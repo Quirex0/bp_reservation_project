@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
-import Footer from "@/Components/Footer";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
