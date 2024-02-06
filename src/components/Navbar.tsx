@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const styles = {
-  navLinks: 'text-lg md:p-3 md:m-5 p-2 m-0 whitespace-nowrap underline underline-offset-4 hover:underline-offset-8 hover:text-sky-800'
+  navLinks: 'text-lg text-customColor font-serif font-medium uppercase md:p-3 md:m-5 p-2 m-0 whitespace-nowrap underline underline-offset-4 hover:underline-offset-8'
 }
 
 const NavLinks = () => {
@@ -18,7 +18,7 @@ const NavLinks = () => {
       </Link>
       <Link className={styles.navLinks}
         href="/cenik">
-        Ceník
+        Ceník služeb
       </Link>
       <Link className={styles.navLinks}
         href="/about">
@@ -46,8 +46,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-[20] mx-auto flex w-full flex-wrap items-center justify-between bg-white">
-      <div className="inline-block ml-10">
+    <div className="sticky top-0 z-[20] mx-auto flex w-full p-2 flex-wrap items-center justify-between bg-white">
+      <div className="inline-block ml-12">
         <Link href="/">
           <Image
             src="/logo.jpg"
@@ -58,7 +58,7 @@ const Navbar = () => {
           />
         </Link>
       </div>
-      <div className='flex w-1/3 justify-end'>
+      <div className='flex w-1/3 justify-end mr-8'>
 
         <div className="justify-between md:flex">
 

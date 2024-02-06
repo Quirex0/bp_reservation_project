@@ -2,29 +2,51 @@ import React from 'react';
 import Link from 'next/link';
 
 const styles = {
-  navLinks: 'text-sm whitespace-nowrap m-5 underline underline-offset-4 rounded-xl hover:text-sky-800'
+  navLinks: 'text-sm whitespace-nowrap m-5 underline underline-offset-4 rounded-xl hover:text-sky-800',
+  navLinksSmallScreen: 'text-sm whitespace-nowrap m-2 underline underline-offset-4 rounded-xl hover:text-sky-800',
 }
 
 const NavLinks = () => {
   return (
     <>
-      <Link className={styles.navLinks}
+      <Link className={styles.navLinks + ' hidden md:block'}
         href="/sluzby">
         Služby
       </Link>
-      <Link className={styles.navLinks}
+      <Link className={styles.navLinks + ' hidden md:block'}
         href="/cenik">
         Ceník
       </Link>
-      <Link className={styles.navLinks}
+      <Link className={styles.navLinks + ' hidden md:block'}
         href="/about">
         O mně
       </Link>
-      <Link className={styles.navLinks}
+      <Link className={styles.navLinks + ' hidden md:block'}
         href="/provozovny">
         Provozovny
       </Link>
-      <Link className={styles.navLinks}
+      <Link className={styles.navLinks + ' hidden md:block'}
+        href="/kontakt">
+        Kontakt
+      </Link>
+
+      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
+        href="/sluzby">
+        Služby
+      </Link>
+      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
+        href="/cenik">
+        Ceník
+      </Link>
+      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
+        href="/about">
+        O mně
+      </Link>
+      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
+        href="/provozovny">
+        Provozovny
+      </Link>
+      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
         href="/kontakt">
         Kontakt
       </Link>
@@ -35,14 +57,14 @@ const NavLinks = () => {
 const Footer = () => {
   return (
     <div className='w-full'>
-      <div className='flex justify-evenly items-center bg-amber-200'>
-        <div className='whitespace-nowrap'>
+      <div className='md:flex-row flex-col flex justify-evenly items-center text-white bg-customColor'>
+        <div className='flex whitespace-nowrap'>
           <p>
             Copyright &copy; {new Date().getFullYear()} Jitka Moučková <br />
           </p>
         </div>
 
-        <div className="md:flex hidden">
+        <div className="md:flex md:flex-row flex items-center flex-col">
           <NavLinks />
         </div>
       </div>
