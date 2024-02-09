@@ -23,7 +23,7 @@ export default function Cenik() {
 
       
       <div className="flex justify-center">
-        <div className="max-w-screen-lg w-full px-10">
+        <div className="max-w-screen-lg w-full px-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-2 md:mb-0">
               <h3 className="md:text-2xl text-md">Shiatsu 120 minut</h3>
