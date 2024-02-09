@@ -17,14 +17,14 @@ export default function Cenik() {
         </div>
       </div>
 
-      <div className="container mx-auto my-8">
+      <div className='flex justify-center my-2'>
+        <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Masáže</h2>
+      </div>
 
-        <div className='flex justify-center my-2'>
-          <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Masáže</h2>
-        </div>
-
-        <div className="p-4 bg-gray-200">
-          <div className="flex flex-col md:flex-row items-center justify-evenly">
+      
+      <div className="flex justify-center">
+        <div className="max-w-screen-lg w-full px-10">
+          <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-2 md:mb-0">
               <h3 className="md:text-2xl text-md">Shiatsu 120 minut</h3>
             </div>
@@ -33,12 +33,12 @@ export default function Cenik() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-evenly">
+          <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-center md:text-left mb-2 md:mb-0">
-              <h3 className="md:text-2xl text-md">Shiatsu 120 minut</h3>
+              <h3 className="md:text-2xl text-md">Klasická masáž 90 minut</h3>
             </div>
             <div className="text-center md:text-xl text-md md:text-right">
-              <p>1400 Kč</p>
+              <p>1000 Kč</p>
             </div>
           </div>
         </div>
