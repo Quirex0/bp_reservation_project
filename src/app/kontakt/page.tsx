@@ -22,7 +22,7 @@ export default function Kontakt() {
     </div>
 
     <div className='flex justify-center'>
-      <h3>Provozuji služby na 3 různých místech a to v Plzni, Praze a Berouně. Kvůli tomu je potřeba se objednat dopředu a domluvit si schůzku.</h3>
+      <h3>Provozuji služby na 3 různých místech a to v Praze a Plzni. Kvůli tomu je potřeba se objednat dopředu a domluvit si schůzku.</h3>
     </div>
 
     <div className='flex justify-center'>
@@ -30,18 +30,18 @@ export default function Kontakt() {
     </div>
 
     <div className="flex justify-center">
-      <div className="max-w-screen-xl w-full mb-4">
+      <div className="max-w-screen-lg w-full mb-4">
         <div className="mt-8 text-center">
-          <div className="text-2xl uppercase text-customColor font-serif mb-4">Plzeň</div>
+          <div className="text-2xl uppercase font-bold text-customColor font-serif mb-4">Praha 8 - Karlín</div>
+          <Maps position={{ lat: 50.09294181512082, lng: 14.445950951564775 }} />
+        </div>
+        <div className="mt-8 text-center">
+          <div className="text-2xl uppercase font-bold text-customColor font-serif mb-4">Praha 8 - Bohnice</div>
+          <Maps position={{ lat: 50.13002431475894, lng: 14.42572258339464 }} />
+        </div>
+        <div className="mt-8 text-center">
+          <div className="text-2xl uppercase font-bold text-customColor font-serif mb-4">Plzeň</div>
           <Maps position={{ lat: 49.74095934764675, lng: 13.375147190597444 }} />
-        </div>
-        <div className="mt-8 text-center">
-          <div className="text-2xl uppercase text-customColor font-serif mb-4">Praha</div>
-          <Maps position={{ lat: 48.8566, lng: 2.3522 }} />
-        </div>
-        <div className="mt-8 text-center">
-          <div className="text-2xl uppercase text-customColor font-serif mb-4">Beroun</div>
-          <Maps position={{ lat: 51.5074, lng: -0.1278 }} />
         </div>
       </div>
     </div>

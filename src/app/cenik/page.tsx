@@ -1,12 +1,24 @@
 import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
 }
 
 export default function Cenik() {
+  const services = [
+    { name: 'Shiatsu 90 minut', prices: [1100, 1000] },
+    { name: 'Masáž celková 90 minut', prices: [1000, 900] },
+    { name: 'Masáž zad a šíje 60 minut', prices: [700, 600] },
+    { name: 'Masáž zad a nohou 60 minut', prices: [700, 600] },
+    { name: 'Masáž plosek nohou', prices: [500, 500] },
+    { name: 'Medová masáž 60 minut', prices: [500, 500] },
+    { name: 'Kraniosakrální osteopatie terapie', prices: [600, 600] },
+    { name: 'Baňkování 30 minut', prices: [300, 300] },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -17,30 +29,64 @@ export default function Cenik() {
         </div>
       </div>
 
-      <div className='flex justify-center my-2'>
-        <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Masáže</h2>
-      </div>
-
-      
       <div className="flex justify-center">
         <div className="max-w-screen-lg w-full px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-center md:text-left mb-2 md:mb-0">
-              <h3 className="md:text-2xl text-md">Shiatsu 120 minut</h3>
-            </div>
-            <div className="text-center md:text-xl text-md md:text-right">
-              <p>1400 Kč</p>
-            </div>
+          <table className="w-full table-auto">
+            <thead>
+              <tr>
+                <td className="text-start text-2xl font-serif text-customColor px-4 py-2">Služby</td>
+                <td className="text-end text-2xl font-serif text-customColor px-4 py-2">
+                  <div className="flex items-center justify-end">
+                    <Image 
+                      src="/location.png"
+                      alt="location pin"
+                      width={20}
+                      height={20}
+                      className="mr-2"
+                    /> 
+                    Praha
+                  </div>
+                </td>
+                <td className="text-end text-2xl font-serif text-customColor px-4 py-2">
+                  <div className="flex items-center justify-end">
+                    <Image 
+                      src="/location.png"
+                      alt="location pin"
+                      width={20}
+                      height={20}
+                      className="mr-2"
+                    /> 
+                    Plzeň
+                  </div>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              {services.map((service, index) => (
+                <tr key={index}>
+                  <td className="px-4 py-2">{service.name}</td>
+                  <td className="text-end px-4 py-2">{service.prices[0]} Kč</td>
+                  <td className="text-end px-4 py-2">{service.prices[1]} Kč</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <div className='text-2xl font-serif text-customColor px-4 my-4'>Doplňkové ošetření</div>
+
+          <div className='flex flex-col'>
+            <div className='px-4 my-1'>Tělové a ušní svíce - cena  50 - 100 Kč </div>
+
+            <div className='px-4 my-1'>Masážní pistole "BODY SONIC" </div>
+            <div className='px-4 my-1'>Fonoforéza</div>
+            <div className='px-4 my-1'>Baňky </div>
+            <div className='px-4 my-1'>Lávové kameny </div>
+            <div className='px-4 my-1'>Moxování </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-center md:text-left mb-2 md:mb-0">
-              <h3 className="md:text-2xl text-md">Klasická masáž 90 minut</h3>
-            </div>
-            <div className="text-center md:text-xl text-md md:text-right">
-              <p>1000 Kč</p>
-            </div>
-          </div>
+          <br /><br /><br />
+
+
         </div>
       </div>
 

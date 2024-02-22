@@ -12,7 +12,7 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
   useEffect(() => {
     const initMap = async () => {
       const loader = new Loader({
-        apiKey: process.env.NEXT_PUBLIC__MAPS_API_KEY as string,
+        apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string,
         version: 'weekly'
       });
 
@@ -38,7 +38,7 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
 
   return (
     <div>
-      <div style={{ height: '500px'}} ref={mapRef} />
+      <div style={{ height: '450px'}} ref={mapRef} />
     </div>
   );
 }
