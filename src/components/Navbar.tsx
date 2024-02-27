@@ -13,6 +13,10 @@ const NavLinks = () => {
   return (
     <>
       <Link className={styles.navLinks}
+        href="/rezervace">
+        Rezervace
+      </Link>
+      <Link className={styles.navLinks}
         href="/sluzby">
         Služby
       </Link>
@@ -41,7 +45,7 @@ const Navbar = () => {
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
-    
+
     console.log(isOpen)
   };
 

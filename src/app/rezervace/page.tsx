@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
-import Navbar from '../components/Navbar';
+import Navbar from '@/components/Navbar';
 import Footer from "@/components/Footer";
+import Calendar from "@/components/Calendar";
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -15,9 +16,17 @@ export default function Home() {
           <h1 className='text-8xl m-8 pt-16 font-medium'>Oukey letsgo</h1>
         </div>
 
-      </main>   
+      </main>
 
 
+      <div className='flex flex-col'>
+        <div className='p-4'>
+            <h2 className='flex justify-center text-5xl font-serif'>Rezervace</h2>
+        </div>
+        <div >
+          <Calendar />
+        </div>
+      </div>
 
       <Footer />
     </div>

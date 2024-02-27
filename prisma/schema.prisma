@@ -22,3 +22,18 @@ model ClosedDay {
   id   String   @id @default(cuid())
   date DateTime @unique
 }
+
+enum Place {
+  Praha_8_Bohnice
+  Praha_8_Karlin
+  Plzen
+}
+
+model Reservation {
+  id    String @id @default(cuid())
+  place Place
+  firstName String
+  lastName String
+  email String
+  date DateTime
+}

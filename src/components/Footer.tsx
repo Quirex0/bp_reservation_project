@@ -30,26 +30,6 @@ const NavLinks = () => {
         Kontakt
       </Link>
 
-      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
-        href="/sluzby">
-        Služby
-      </Link>
-      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
-        href="/cenik">
-        Ceník
-      </Link>
-      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
-        href="/about">
-        O mně
-      </Link>
-      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
-        href="/provozovny">
-        Provozovny
-      </Link>
-      <Link className={styles.navLinksSmallScreen + ' md:hidden'}
-        href="/kontakt">
-        Kontakt
-      </Link>
     </>
   )
 }
@@ -57,7 +37,7 @@ const NavLinks = () => {
 const Footer = () => {
   return (
     <div className='w-full'>
-      <div className='md:flex-row flex-col flex justify-evenly items-center text-white bg-customColor'>
+      <div className='md:flex-row flex-col flex justify-evenly items-center text-white bg-customColor p-5'>
         <div className='flex whitespace-nowrap'>
           <p>
             Copyright &copy; {new Date().getFullYear()} Jitka Moučková <br />
