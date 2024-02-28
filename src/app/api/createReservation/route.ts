@@ -1,4 +1,3 @@
-import { Reservation } from '@/utils/types'
 import prisma from '../../../utils/prisma'
 import { Place } from '@prisma/client'
 import { NextRequest } from 'next/server'

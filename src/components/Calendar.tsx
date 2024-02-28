@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { format, isBefore } from 'date-fns';
 import { cs } from 'date-fns/locale';
 import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
@@ -9,7 +9,10 @@ import TimePicker from './TimePicker'; // Import TimePicker komponenty
 
 
 export default function Calendar() {
-  const [selectedDay, setSelectedDay] = useState<Date>();
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const [selectedDay, setSelectedDay] = useState<Date>(tomorrow);
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<Date>(); // State pro uchování vybraného času
   const [firstName, setFirstName] = useState<string>(''); // State pro uchování jména
@@ -17,6 +20,29 @@ export default function Calendar() {
   const [email, setEmail] = useState<string>(''); // State pro uchování mailu
   const [place, setPlace] = useState<string>('Plzen');
   const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const fetchAvailableTimes = async () => {
+
+      const isoDateString = `${selectedDay.getFullYear()}-${(selectedDay.getMonth() + 1).toString().padStart(2, '0')}-${selectedDay.getDate().toString().padStart(2, '0')}T00:00:00`;
+
+      const url = `http://localhost:3000/api/getAvailable?date=${isoDateString}&place=${place}`;
+      const response = await fetch(url);
+      const body = await response.json();
+
+      const times: string[] = [];
+      body.forEach((item: { date: string }) => {
+        const { date } = item;
+        const time = date.slice(11, 16);
+        const [hours, minutes] = time.split(':');
+        times.push(hours);
+      });
+      setBookedTimes(times);
+    };
+
+    fetchAvailableTimes();
+  }, [selectedDay, place]);
 
   const handleDayClick: SelectSingleEventHandler = async (day: Date | undefined) => {
     if (day && !isBefore(day, new Date())) {
@@ -24,49 +50,77 @@ export default function Calendar() {
       if (day.getMonth() !== currentMonth.getMonth()) {
         setCurrentMonth(day);
       }
-
-      const response = await fetch(`http://localhost:3000/api/getAvailable?date=${day}&place=${place}`)
-      const body = await response.json()
-
-      const times: string[] = [];
-
-      body.forEach((item: { date: string }) => {
-        const { date } = item;
-        const time = date.slice(11, 16);
-        const [hours, minutes] = time.split(':');
-        //const formattedTime = `${hours}:${minutes}`;
-        times.push(hours);
-      });
-      setBookedTimes(times)
+      setSelectedTime(undefined)
     }
   };
 
   // Funkce pro zpracování vybraného času
   const handleTimeSelect = (time: Date) => {
     setSelectedTime(time);
-    console.log(time.toString()); // Logování vybraného času do konzole
+    clearFormError('selectedTime');
   };
 
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);
+    clearFormError('firstName');
   };
 
   const handleLastNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLastName(e.target.value);
+    clearFormError('lastName');
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
+    clearFormError('email');
   };
 
-  const handlePlaceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePlaceChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPlace(e.target.value);
+    setSelectedTime(undefined)
+    clearFormError('place');
   };
+
+  const handleSubmit = async () => {
+    if (!firstName || !lastName || !email || !selectedTime) {
+      setFormErrors({
+        firstName: !firstName ? 'Jméno je povinné.' : '',
+        lastName: !lastName ? 'Příjmení je povinné.' : '',
+        email: !email ? 'E-mail je povinný.' : isValidEmail(email) ? '' : 'Neplatný formát e-mailu.',
+        selectedTime: !selectedTime ? 'Čas je povinný.' : '',
+      });
+      return;
+    }
+
+    setFormErrors({});
+    const result = await fetch("/api/createReservation", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        place: place,
+        date: selectedTime?.toISOString()
+      })
+    })
+  }
+
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const clearFormError = (field: string) => {
+    setFormErrors({
+      ...formErrors,
+      [field]: ''
+    });
+  };
+
 
   const footer = selectedDay ?
     <div>
       <div>
-        <TimePicker onTimeSelect={handleTimeSelect} bookedTimes={bookedTimes} />
+        <TimePicker onTimeSelect={handleTimeSelect} bookedTimes={bookedTimes} selectedDate={selectedDay} setSelectedDate={setSelectedDay} />
       </div>
     </div>
     : (
@@ -99,6 +153,19 @@ export default function Calendar() {
 
   return (
     <div className='flex sm:flex-row flex-col justify-evenly p-2'>
+      <div className='flex flex-col pl-2'>
+        <div>
+          Kde:
+        </div>
+        <div>
+          <select className='border-2 rounded-md border-customColor p-1' value={place} onChange={handlePlaceChange}>
+            <option value="Plzen">Plzeň</option>
+            <option value="Praha_8_Karlin">Praha 8 Karlin</option>
+            <option value="Praha_8_Bohnice">Praha 8 Bohnice</option>
+          </select>
+        </div>
+      </div>
+
       <div className='flex flex-col'>
         <DayPicker className='flex justify-center p-4'
           mode="single"
@@ -112,6 +179,7 @@ export default function Calendar() {
           onMonthChange={setCurrentMonth}
           month={currentMonth}
         />
+
         <div>
           {footer}
         </div>
@@ -124,6 +192,7 @@ export default function Calendar() {
             </div>
             <div>
               <input className='border-2 rounded-md border-customColor p-1' id='jmeno' type="text" placeholder="Jan" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
+              {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
             </div>
           </div>
           <div className='flex flex-col pl-2'>
@@ -132,6 +201,7 @@ export default function Calendar() {
             </div>
             <div>
               <input className='border-2 rounded-md border-customColor p-1' id='prijmeni' type="text" placeholder="Novák" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
+              {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
             </div>
           </div>
         </div>
@@ -142,21 +212,12 @@ export default function Calendar() {
             </div>
             <div>
               <input className='border-2 rounded-md border-customColor p-1' id='email' type="text" placeholder="jan.novak@gmail.com" value={email} onChange={handleEmailChange} autoComplete="email" />
-            </div>
-          </div>
-          <div className='flex flex-col pl-2'>
-            <div>
-              Kde:
-            </div>
-            <div>
-
+              {formErrors.email && <span className="text-red-500">{formErrors.email}</span>}
             </div>
           </div>
         </div>
-
-
-        <div className=''>
-          <button className='border rounded-lg bg-customColor text-white p-2'>
+        <div>
+          <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border rounded-lg bg-customColor text-white p-2 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
             Rezervovat
           </button>
         </div>

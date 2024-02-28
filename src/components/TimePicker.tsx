@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 interface TimePickerProps {
   onTimeSelect: (time: Date) => void;
   bookedTimes: string[];
+  selectedDate: Date;
+  setSelectedDate: Dispatch <SetStateAction<Date>> 
 }
 
-const TimePicker: React.FC<TimePickerProps> = ({ onTimeSelect, bookedTimes }) => {
+const TimePicker: React.FC<TimePickerProps> = ({ onTimeSelect, bookedTimes, selectedDate, setSelectedDate }) => {
   const [selectedTime, setSelectedTime] = useState<Date>();
 
   const handleTimeSelect = (hour: number) => {
@@ -13,14 +15,17 @@ const TimePicker: React.FC<TimePickerProps> = ({ onTimeSelect, bookedTimes }) =>
     newTime.setHours(hour);
     newTime.setMinutes(0);
     setSelectedTime(newTime);
-    onTimeSelect(newTime);
+    selectedDate.setHours(hour);
+    selectedDate.setMinutes(0);
+    onTimeSelect(selectedDate);
+    setSelectedDate(selectedDate);
   };
 
   const renderTimeButtons = () => {
     const buttons = [];
     const startHour = 10; // Začátek otevření
     const endHour = 19; // Konec otevření
-    console.log(bookedTimes)
+    
     for (let hour = startHour; hour <= endHour; hour++) {
       
       if (!bookedTimes.includes(hour.toString())) {

@@ -30,7 +30,7 @@ enum Place {
 }
 
 model Reservation {
-  id    String @id @default(cuid())
+  @@id([date, place])
   place Place
   firstName String
   lastName String
