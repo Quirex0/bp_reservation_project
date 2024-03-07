@@ -11,18 +11,15 @@ export default function Home() {
     <div>
       <Navbar />
 
-      <main className='flex w-full flex-wrap justify-center items-center p-2 mb-4 text-orange-200 bg-customColor'>
+      <main className='flex w-full flex-wrap justify-center items-center p-2 mb-4 text-white bg-customColor'>
         <div>
-          <h1 className='text-8xl m-8 pt-16 font-medium'>Oukey letsgo</h1>
+          <h1 className='md:text-7xl text-white font-serif uppercase p-8 whitespace-nowrap font-medium text-4xl'>Rezervace</h1>
         </div>
 
       </main>
 
 
       <div className='flex flex-col'>
-        <div className='p-4'>
-            <h2 className='flex justify-center text-5xl font-serif'>Rezervace</h2>
-        </div>
         <div >
           <Calendar />
         </div>

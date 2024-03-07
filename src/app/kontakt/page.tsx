@@ -46,6 +46,17 @@ export default function Kontakt() {
       </div>
     </div>
 
+    <div className='flex justify-center my-12'>
+      <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Jak mě můžete kontaktovat?</h2>
+    </div>
+
+    <div>
+      <div className='flex justify-center'>
+        <p>Telefon</p>
+        <p>5646</p>
+      </div>
+    </div>
+
     <Footer />
   </div>
 }

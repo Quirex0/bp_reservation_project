@@ -25,10 +25,6 @@ const NavLinks = () => {
         Ceník služeb
       </Link>
       <Link className={styles.navLinks}
-        href="/about">
-        O mně
-      </Link>
-      <Link className={styles.navLinks}
         href="/provozovny">
         Provozovny
       </Link>
