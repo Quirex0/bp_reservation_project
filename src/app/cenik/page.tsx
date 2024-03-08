@@ -30,32 +30,32 @@ export default function Cenik() {
       </div>
 
       <div className="flex justify-center">
-        <div className="max-w-screen-lg w-full px-4">
+        <div className="max-w-screen-lg w-full px-4 pt-8">
           <table className="w-full table-auto">
             <thead>
               <tr>
                 <td className="text-start text-2xl font-serif text-customColor px-4 py-2">Služby</td>
                 <td className="text-end text-2xl font-serif text-customColor px-4 py-2">
                   <div className="flex items-center justify-end">
-                    <Image 
+                    <Image
                       src="/location.png"
                       alt="location pin"
                       width={20}
                       height={20}
                       className="mr-2"
-                    /> 
+                    />
                     Praha
                   </div>
                 </td>
                 <td className="text-end text-2xl font-serif text-customColor px-4 py-2">
                   <div className="flex items-center justify-end">
-                    <Image 
+                    <Image
                       src="/location.png"
                       alt="location pin"
                       width={20}
                       height={20}
                       className="mr-2"
-                    /> 
+                    />
                     Plzeň
                   </div>
                 </td>
@@ -72,19 +72,36 @@ export default function Cenik() {
             </tbody>
           </table>
 
-          <div className='text-2xl font-serif text-customColor px-4 my-4'>Doplňkové ošetření</div>
+          <div className='py-8'>
+            <div className='text-2xl font-serif text-customColor px-4 my-4'>Doplňkové ošetření</div>
 
-          <div className='flex flex-col'>
-            <div className='px-4 my-1'>Tělové a ušní svíce - cena  50 - 100 Kč </div>
+            <div className='flex flex-col'>
+              <div className='px-4 my-1'>Tělové a ušní svíce - příplatek  50 - 100 Kč </div>
 
-            <div className='px-4 my-1'>Masážní pistole "BODY SONIC" </div>
-            <div className='px-4 my-1'>Fonoforéza</div>
-            <div className='px-4 my-1'>Baňky </div>
-            <div className='px-4 my-1'>Lávové kameny </div>
-            <div className='px-4 my-1'>Moxování </div>
+              <div className='px-4 my-1'>Masážní pistole "BODY SONIC" </div>
+              <div className='px-4 my-1'>Fonoforéza</div>
+              <div className='px-4 my-1'>Baňky </div>
+              <div className='px-4 my-1'>Lávové kameny </div>
+              <div className='px-4 my-1'>Moxování </div>
+            </div>
           </div>
 
-          <br /><br /><br />
+
+
+          <div className='flex flex-row justify-between items-center px-4 mb-12'>
+            <div className='flex flex-col'>
+              <p>Pro zájemce je možnost pořídit poukázku jako dárek.</p>
+              <p>Lze použít jednorázově nebo koupit balíček.</p>
+            </div>
+            <div className='flex'>
+              <Image src="/poukazka.jpg"
+                alt="poukazka"
+                width={500}
+                height={400}
+                className="" />
+            </div>
+          </div>
+
 
 
         </div>

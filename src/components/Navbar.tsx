@@ -46,15 +46,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className="sticky top-0 z-[20] mx-auto flex w-full p-2 flex-wrap items-center justify-between bg-white">
+    <div className="sticky top-0 z-[20] mx-auto flex w-full flex-wrap items-center justify-between bg-white">
       <div className="inline-block ml-12">
         <Link href="/">
-          <Image
+          <Image 
             src="/logo.jpg"
             alt="Logo"
             width={100}
             height={100}
-            className="cursor-pointer"
+            className="cursor-pointer m-2"
           />
         </Link>
       </div>
@@ -81,7 +81,10 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      <div className="sticky top-[50px] bg-customColor w-full h-6"></div>
     </div>
+    
   );
 };
 export default Navbar;
