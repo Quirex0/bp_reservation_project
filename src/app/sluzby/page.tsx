@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -45,34 +44,34 @@ export default function Sluzby() {
     <div>
       <Navbar />
 
-      <div className='flex w-full flex-wrap justify-center items-center p-2 mb-4 bg-customColor'>
+      <div className='flex w-full flex-wrap justify-center items-center mb-4 bg-customColor'>
         <div>
-          <h1 className='md:text-7xl text-white font-serif uppercase p-8 whitespace-nowrap font-medium text-4xl'>Nabízené služby</h1>
+          <h1 className='lg:text-7xl md:text-5xl text-4xl text-white font-serif uppercase md:p-8 p-4 whitespace-nowrap font-medium'>Nabízené služby</h1>
         </div>
       </div>
 
       <div className='flex flex-col justify-center w-full px-4'>
         <div className="flex flex-col justify-center my-8">
           <div className='flex justify-center'>
-            <h2 className='md:text-5xl text-3xl text-customColor font-serif m-2 pt-2'>Shiatsu</h2>
+            <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif m-2 pt-2'>Shiatsu</h2>
           </div>
-          <div className="md:flex md:flex-row justify-evenly my-12">
-            <div className="flex justify-end">
-              <Image className='rounded-2xl' src="/jitka_3.jpg" alt="Shiatsu" width={350} height={300} />
+          <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
+            <div className="flex lg:justify-end justify-center mb-6">
+              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/jitka_3.jpg" alt="Shiatsu" />
             </div>
-            <div className="flex md:w-1/3">
-              <div className="flex flex-col justify-center">
-                <p className="md:text-base text-sm text-gray-700 mb-4">
+            <div className="flex justify-center lg:w-1/3 items-center">
+              <div className="flex flex-col justify-center w-3/4 xl:text-lg md:text-base text-sm">
+                <p className="lg:mx-0 mx-4 mb-4 text-center hyphens-auto">
                   Shiatsu je masážní technika, která pochází z Japonska.
                   Skrývá v sobě prvky přikládání prstů a dlaní, pracuje se systémem akupunkturních drah známých z čínské medicíny.
                   Klient leží oblečený v pohodlném oblečení na zemi na futonu.
                   Shiatsu je výborná preventivní metoda jak akutních, tak chronických onemocnění.
                   Ulevuje od stresu i emočního napětí a tak umožňuje optimální funkci imunitního systému.
                 </p>
-                <p className='md:text-base text-sm text-gray-700 mb-4'>
+                <p className='flex justify-center lg:justify-start mb-4'>
                   Je vhodné pro různé stavy:
                 </p>
-                <ul className="list-disc ml-6">
+                <ul className="lg:list-disc lg:ml-5 text-center lg:text-left">
                   <li>únava</li>
                   <li>pocit nedostatku energie</li>
                   <li>nespavost</li>
@@ -83,6 +82,7 @@ export default function Sluzby() {
                   <li>gynekologické obtíže</li>
                 </ul>
 
+
               </div>
             </div>
           </div>
@@ -90,13 +90,13 @@ export default function Sluzby() {
 
         <div className="flex flex-col justify-center my-8 text-center">
           <div className='flex justify-center'>
-            <h2 className='md:text-5xl text-3xl text-customColor font-serif m-2'>Celková masáž</h2>
+            <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif m-2 pt-2'>Celková masáž</h2>
           </div>
-          <div className="md:flex md:flex-row justify-center my-12">
-            <div className="flex md:w-1/3">
-              <div className="flex justify-center items-center">
-                <p className="md:text-base text-sm text-gray-700 mb-4">
-                  Klasická masáž je vhodná k regeneraci organismu po zátěži, uvolnění napětí a bolesti ve ztuhlých svalových partiích, 
+          <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
+            <div className='flex justify-center lg:w-1/3 items-center'>
+              <div className="flex justify-center items-center w-3/4 xl:text-lg md:text-base text-sm">
+                <p className="lg:mx-0 mx-4 mb-6">
+                  Klasická masáž je vhodná k regeneraci organismu po zátěži, uvolnění napětí a bolesti ve ztuhlých svalových partiích,
                   odstranění únavy a navození celkového pocitu pohody.
                   Stimuluje krevní a lymfatický oběh.
                   Můžete si vybrat ze dvou variant: celková masáž těla, nebo masáž vybraných partií.
@@ -104,27 +104,23 @@ export default function Sluzby() {
                 </p>
               </div>
             </div>
-            <div className="md:w-1/2">
-              <div className="flex justify-center">
-                <Image className='rounded-2xl' src="/lehatko_plzen.jpg" alt="Celková masáž" width={350} height={200} />
-              </div>
+            <div className="flex lg:justify-end justify-center">
+              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/lehatko_plzen.jpg" alt="Celková masáž" />
             </div>
           </div>
         </div>
 
         <div className="flex flex-col justify-center my-8 text-center">
           <div className='flex justify-center'>
-            <h2 className='md:text-5xl text-3xl text-customColor font-serif m-2'>Medová masáž</h2>
+            <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif m-2 pt-2'>Medová masáž</h2>
           </div>
-          <div className="md:flex md:flex-row justify-center my-12">
-            <div className="md:w-1/2">
-              <div className="flex justify-center">
-                <Image className='rounded-2xl' src="/med.jpg" alt="Medová masáž" width={400} height={300} />
-              </div>
+          <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
+            <div className="flex lg:justify-end justify-center mb-6">
+              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/med.jpg" alt="Medová masáž" />
             </div>
-            <div className="flex md:w-1/3">
-              <div className="flex items-center justify-center">
-                <p className="md:text-base text-sm text-gray-700 mb-4">
+            <div className="flex justify-center lg:w-1/3 items-center">
+              <div className="flex justify-center items-center w-3/4 xl:text-lg md:text-base text-sm">
+                <p className="lg:mx-0 mx-4 mb-4">
                   Medová masáž je spojení klasické masáže a léčivých účinků medu.
                   Tekutý a zahřátý med se rozetře po celém těle a následně se začne jemnými pohyby rukou vmasírovávat do pokožky.
                   K tomu je využívána speciální technika, tzv. pumpování,
@@ -140,12 +136,12 @@ export default function Sluzby() {
 
         <div className="flex flex-col justify-center my-8 text-center">
           <div className='flex justify-center'>
-            <h2 className='md:text-5xl text-3xl text-customColor font-serif m-2'>Kranio terapie</h2>
+            <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif m-2'>Kranio terapie</h2>
           </div>
-          <div className="md:flex md:flex-row justify-center my-12">
-            <div className="flex md:w-1/3">
-              <div className="flex items-center justify-center">
-                <p className="md:text-base text-sm text-gray-700 mb-4">
+          <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
+            <div className='flex justify-center  lg:w-2/5 items-center'>
+              <div className="flex justify-center items-center w-3/4 xl:text-lg md:text-base text-sm">
+                <p className="mb-6">
                   Kraniosakrální terapie (cranio = lebka a sacrum = křížová kost) je jemná a velmi účinná terapeutická harmonizační metoda,
                   která vylaďuje rytmus, který pulzuje hluboko uvnitř fyziologického systému.
                   V kraniosakrální terapii se věnuje pozornost rozpouštění blokád uložených v tkáních (svaly, vaziva, klouby, kosti),
@@ -158,10 +154,8 @@ export default function Sluzby() {
                 </p>
               </div>
             </div>
-            <div className="md:w-1/2">
-              <div className="flex justify-center">
-                <Image className='rounded-2xl' src="/kranio.jpg" alt="Kranio terapie" width={300} height={200} />
-              </div>
+            <div className="flex justify-center items-center">
+              <img className='rounded-2xl w-auto h-max' src="/kranio.jpg" alt="Kranio terapie" />
             </div>
           </div>
         </div>
@@ -169,24 +163,22 @@ export default function Sluzby() {
 
 
       <div className='flex justify-center my-12'>
-        <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Doplňkové služby k masážím</h2>
+        <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif m-2'>Doplňkové služby k masážím</h2>
       </div>
 
       <div className="flex justify-center">
         <div className="max-w-screen-lg w-full px-4">
           {tools.map((tool, index) => (
-            <div className={`flex flex-col md:flex-row items-center justify-between ${index % 2 === 0 ? '' : 'md:flex-row-reverse'} my-12`} key={index}>
-              <div className="md:w-1/2">
+            <div className={`flex flex-col lg:flex-row items-center justify-between ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'} my-12`} key={index}>
+              <div className="lg:w-1/2">
                 <div className="flex flex-col items-center justify-center">
-                  <h2 className="md:text-2xl text-lg font-bold mb-4">{tool.title}</h2>
-                  <p className="md:text-base text-sm text-gray-700 mb-4">{tool.description}</p>
+                  <h2 className="lg:text-2xl text-lg font-bold mb-4">{tool.title}</h2>
+                  <p className="md:text-base text-sm text-gray-700 mb-8">{tool.description}</p>
                 </div>
               </div>
-              <div className="md:w-1/2">
                 <div className="flex justify-center">
-                  <Image className='rounded-2xl' src={tool.image} alt={tool.title} width={350} height={300} />
+                  <img className='rounded-2xl h-auto max-w-xs md:max-w-sm' src={tool.image} alt={tool.title} />
                 </div>
-              </div>
             </div>
           ))}
         </div>

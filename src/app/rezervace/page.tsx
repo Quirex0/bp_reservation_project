@@ -11,9 +11,9 @@ export default function Home() {
     <div>
       <Navbar />
 
-      <main className='flex w-full flex-wrap justify-center items-center p-2 mb-4 text-white bg-customColor'>
+      <main className='flex w-full flex-wrap justify-center items-center mb-4 bg-customColor'>
         <div>
-          <h1 className='md:text-7xl text-white font-serif uppercase p-8 whitespace-nowrap font-medium text-4xl'>Rezervace</h1>
+          <h1 className='lg:text-7xl md:text-5xl text-4xl text-white font-serif uppercase md:p-8 p-4 whitespace-nowrap font-medium'>Rezervace</h1>
         </div>
 
       </main>

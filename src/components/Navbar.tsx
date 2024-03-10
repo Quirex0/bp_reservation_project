@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const styles = {
-  navLinks: 'text-lg text-customColor font-serif font-medium uppercase md:p-3 md:m-5 p-2 m-0 whitespace-nowrap underline underline-offset-4 hover:underline-offset-8'
+  navLinks: 'text-lg text-customColor font-serif font-medium uppercase lg:p-2 lg:m-5 m-2 p-1 whitespace-nowrap underline underline-offset-4 hover:underline-offset-8'
 }
 
 const NavLinks = () => {
@@ -60,12 +60,12 @@ const Navbar = () => {
       </div>
       <div className='flex w-1/3 justify-end mr-8'>
 
-        <div className="justify-between md:flex">
+        <div className="justify-between lg:flex">
 
-          <div className="hidden md:flex">
+          <div className="hidden lg:flex">
             <NavLinks />
           </div>
-          <div className='md:hidden'>
+          <div className='lg:hidden'>
             <button onClick={toggleNavbar}> {isOpen ? <X /> : <Menu />}
 
             </button>
@@ -75,14 +75,14 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className='flex basis-full justify-center md:hidden'>
+        <div className='flex basis-full justify-center lg:hidden'>
           <div className="flex flex-col items-center">
             <NavLinks />
           </div>
         </div>
       )}
 
-      <div className="sticky top-[50px] bg-customColor w-full h-6"></div>
+      <div className="sticky bg-customColor w-full h-6"></div>
     </div>
     
   );

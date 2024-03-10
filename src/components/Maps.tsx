@@ -37,8 +37,8 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
   }, [position]);
 
   return (
-    <div>
-      <div style={{ height: '450px'}} ref={mapRef} />
+    <div className="h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px]">
+      <div className="h-full" ref={mapRef} />
     </div>
   );
 }

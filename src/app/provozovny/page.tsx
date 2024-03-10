@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -31,14 +30,14 @@ export default function Provozovny() {
     <div>
       <Navbar />
 
-      <div className='flex w-full flex-wrap justify-center items-center p-2 mb-4 bg-customColor'>
+      <div className='flex w-full flex-wrap justify-center items-center mb-4 bg-customColor'>
         <div>
-          <h1 className='md:text-7xl text-white font-serif uppercase p-8 whitespace-nowrap font-medium text-4xl'>Provozovny</h1>
+          <h1 className='lg:text-7xl md:text-5xl text-4xl text-white font-serif uppercase md:p-8 p-4 whitespace-nowrap font-medium '>Provozovny</h1>
         </div>
       </div>
 
       <div className='flex justify-center my-12'>
-        <h2 className='md:text-5xl text-2xl text-customColor font-serif'>Kde mě můžete najít?</h2>
+        <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Kde mě můžete najít?</h2>
       </div>
 
       <div className="flex justify-center">
@@ -48,11 +47,11 @@ export default function Provozovny() {
               <div key={index}>
                 <div className="flex flex-col items-center mx-3 my-12">
                   <div className='text-center'>
-                    <h3 className="text-3xl font-bold mb-6">{place.title}</h3>
-                    <p className="text-xl text-gray-700 mb-6">{place.description}</p>
+                    <h3 className="lg:text-3xl md:text-2xl text-xl font-bold mb-6">{place.title}</h3>
+                    <p className="lg:text-xl text-md text-gray-700 mb-6">{place.description}</p>
                   </div>
                   <div className="flex justify-center">
-                    <Image className='rounded-2xl' src={place.image} alt={place.title} width={500} height={350} />
+                    <img className='rounded-2xl w-3/5 lg:w-4/5 h-auto' src={place.image} alt={place.title} />
                   </div>
                 </div>
               </div>

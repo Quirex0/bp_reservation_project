@@ -117,7 +117,7 @@ export default function Calendar() {
   };
 
 
-  const footer = selectedDay ?
+  const selector = selectedDay ?
     <div>
       <div>
         <TimePicker onTimeSelect={handleTimeSelect} bookedTimes={bookedTimes} selectedDate={selectedDay} setSelectedDate={setSelectedDay} />
@@ -152,76 +152,85 @@ export default function Calendar() {
   };
 
   return (
-    <div className='flex sm:flex-row flex-col justify-evenly p-2'>
-      <div className='flex flex-col pl-2'>
-        <div>
-          Kde:
+    <div className='flex flex-col lg:flex-row lg:justify-evenly items-center xl:m-20 lg:m-16'>
+      <div className='flex flex-col'>
+        <div className='flex flex-col'>
+          <div className='flex justify-center lg:text-4xl md:text-3xl text-2xl mb-4'>
+            Vyberte pobočku:
+          </div>
+          <div className='flex justify-center'>
+            <select className='border-2 rounded-md text-center border-customColor p-1' value={place} onChange={handlePlaceChange}>
+              <option value="Plzen">Plzeň</option>
+              <option value="Praha_8_Karlin">Praha 8 - Karlín</option>
+              <option value="Praha_8_Bohnice">Praha 8 - Bohnice</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <select className='border-2 rounded-md border-customColor p-1' value={place} onChange={handlePlaceChange}>
-            <option value="Plzen">Plzeň</option>
-            <option value="Praha_8_Karlin">Praha 8 Karlin</option>
-            <option value="Praha_8_Bohnice">Praha 8 Bohnice</option>
-          </select>
+
+        <div className='flex flex-col'>
+          <DayPicker className='flex justify-center p-4'
+            mode="single"
+            locale={cs}
+            selected={selectedDay}
+            onSelect={handleDayClick}
+            showOutsideDays
+            modifiers={{ disabled: disabledDays }}
+            modifiersStyles={modifiersStyles}
+            formatters={{ formatCaption }}
+            onMonthChange={setCurrentMonth}
+            month={currentMonth}
+          />
+
         </div>
       </div>
+
 
       <div className='flex flex-col'>
-        <DayPicker className='flex justify-center p-4'
-          mode="single"
-          locale={cs}
-          selected={selectedDay}
-          onSelect={handleDayClick}
-          showOutsideDays
-          modifiers={{ disabled: disabledDays }}
-          modifiersStyles={modifiersStyles}
-          formatters={{ formatCaption }}
-          onMonthChange={setCurrentMonth}
-          month={currentMonth}
-        />
+        <div className='flex justify-center flex-wrap m-4'>
+          {selector}
+        </div>
 
-        <div>
-          {footer}
-        </div>
-      </div>
-      <div className='flex flex-col justify-evenly p-2'>
-        <div className='flex flex-row justify-evenly'>
-          <div className='flex flex-col pr-2'>
-            <div>
-              Jméno:
+        <div className='flex flex-col p-2'>
+          <div className='flex flex-col lg:flex-row justify-evenly'>
+            <div className='flex flex-col mb-4'>
+              <div className='flex justify-center mb-2'>
+                Jméno:
+              </div>
+              <div className='flex justify-center'>
+                <input className='border-2 rounded-md border-customColor p-1' id='jmeno' type="text" placeholder="Jan" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
+                {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
+              </div>
             </div>
-            <div>
-              <input className='border-2 rounded-md border-customColor p-1' id='jmeno' type="text" placeholder="Jan" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
-              {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
-            </div>
-          </div>
-          <div className='flex flex-col pl-2'>
-            <div>
-              Příjmení:
-            </div>
-            <div>
-              <input className='border-2 rounded-md border-customColor p-1' id='prijmeni' type="text" placeholder="Novák" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
-              {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
+            <div className='flex flex-col mb-4'>
+              <div className='flex justify-center mb-2'>
+                Příjmení:
+              </div>
+              <div className='flex justify-center'>
+                <input className='border-2 rounded-md border-customColor p-1' id='prijmeni' type="text" placeholder="Novák" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
+                {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
+              </div>
             </div>
           </div>
-        </div>
-        <div className='flex flex-row justify-evenly'>
-          <div className='flex flex-col pr-2'>
-            <div>
+          <div className='flex flex-col mb-4'>
+            <div className='flex justify-center mb-2'>
               E-mail:
             </div>
-            <div>
+            <div className='flex justify-center'>
               <input className='border-2 rounded-md border-customColor p-1' id='email' type="text" placeholder="jan.novak@gmail.com" value={email} onChange={handleEmailChange} autoComplete="email" />
               {formErrors.email && <span className="text-red-500">{formErrors.email}</span>}
             </div>
           </div>
-        </div>
-        <div>
-          <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border rounded-lg bg-customColor text-white p-2 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
-            Rezervovat
-          </button>
+          <div className='flex justify-center m-4'>
+            <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border rounded-lg bg-customColor text-white p-2 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
+              Rezervovat
+            </button>
+          </div>
         </div>
       </div>
+
+
+
+
     </div>
   );
 }

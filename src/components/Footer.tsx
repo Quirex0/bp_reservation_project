@@ -37,7 +37,7 @@ const NavLinks = () => {
 const Footer = () => {
   return (
     <div className='w-full'>
-      <div className='md:flex-row flex-col flex justify-evenly items-center text-white bg-customColor'>
+      <div className='md:flex-row flex-col flex justify-evenly items-center text-white p-4 md:p-0 bg-customColor'>
         <div className='flex whitespace-nowrap'>
           <p>
             Copyright &copy; {new Date().getFullYear()} Jitka Moučková <br />
