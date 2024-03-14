@@ -13,23 +13,25 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
     const initMap = async () => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string,
-        version: 'weekly'
+        version: 'weekly',
+        libraries: ['marker'] // Přidáno načítání knihovny marker
       });
 
-      const { Map } = await loader.importLibrary('maps');
-      const { Marker } = await loader.importLibrary('marker') as google.maps.MarkerLibrary;
+      const google = await loader.load();
 
       const mapOptions: google.maps.MapOptions = {
         center: position,
         zoom: 14,
-        mapId: 'My_map'
+        mapId: 'MAP_ID'
       }
 
-      const map = new Map(mapRef.current as HTMLDivElement, mapOptions);
+      const map = new google.maps.Map(mapRef.current as HTMLDivElement, mapOptions);  
 
-      const marker = new Marker({
+      // Vytvoření pokročilého markeru
+      const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
         map: map,
-        position: position
+        position: position,
+        title: 'Marker'
       });
     }
 

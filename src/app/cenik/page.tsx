@@ -97,7 +97,7 @@ export default function Cenik() {
               <p>Poukaz je možné zakoupit pouze osobně.</p>
             </div>
             <div className='flex'>
-              <Image src="/poukazka.jpg"
+              <img src="/poukazka.jpg"
                 alt="poukazka"
                 width={500}
                 height={400}
