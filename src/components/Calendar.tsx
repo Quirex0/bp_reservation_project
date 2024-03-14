@@ -192,44 +192,33 @@ export default function Calendar() {
 
         <div className='flex flex-col p-2'>
           <div className='flex flex-col lg:flex-row justify-evenly'>
-            <div className='flex flex-col mb-4'>
-              <div className='flex justify-center mb-2'>
-                Jméno:
-              </div>
-              <div className='flex justify-center'>
-                <input className='border-2 rounded-md border-customColor p-1' id='jmeno' type="text" placeholder="Jan" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
-                {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
-              </div>
+            <div className='flex justify-center mb-4'>
+              <input className='border-2 rounded-md border-customColor p-2 w-64' id='jmeno' type="text" placeholder="Jméno" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
+              {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
             </div>
-            <div className='flex flex-col mb-4'>
-              <div className='flex justify-center mb-2'>
-                Příjmení:
-              </div>
-              <div className='flex justify-center'>
-                <input className='border-2 rounded-md border-customColor p-1' id='prijmeni' type="text" placeholder="Novák" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
-                {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
-              </div>
+
+            <div className='flex justify-center mb-4'>
+              <input className='border-2 rounded-md border-customColor p-2 w-64' id='prijmeni' type="text" placeholder="Příjmení" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
+              {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
             </div>
           </div>
-          <div className='flex flex-col mb-4'>
-            <div className='flex justify-center mb-2'>
-              E-mail:
-            </div>
+
+          <div className='flex flex-col lg:flex-row justify-evenly mb-4'>
             <div className='flex justify-center'>
-              <input className='border-2 rounded-md border-customColor p-1' id='email' type="text" placeholder="jan.novak@gmail.com" value={email} onChange={handleEmailChange} autoComplete="email" />
+              <input className='border-2 rounded-md border-customColor p-2 w-64' id='email' type="text" placeholder="Email" value={email} onChange={handleEmailChange} autoComplete="email" />
               {formErrors.email && <span className="text-red-500">{formErrors.email}</span>}
             </div>
-          </div>
-          <div className='flex justify-center m-4'>
-            <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border rounded-lg bg-customColor text-white p-2 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
-              Rezervovat
-            </button>
+
+            <div className='flex justify-center'>
+              <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border-2 rounded-lg bg-customColor border-customColor text-white p-2 w-64 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 border-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
+                Rezervovat
+              </button>
+            </div>
           </div>
         </div>
+
+
       </div>
-
-
-
 
     </div>
   );
