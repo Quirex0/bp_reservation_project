@@ -6,11 +6,13 @@ import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { Locale } from 'date-fns';
 import TimePicker from './TimePicker'; // Import TimePicker komponenty
+import { useRouter } from 'next/navigation';
 
 
 export default function Calendar() {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
+  const router = useRouter();
 
   const [selectedDay, setSelectedDay] = useState<Date>(tomorrow);
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
@@ -108,6 +110,10 @@ export default function Calendar() {
         date: selectedTime?.toISOString()
       })
     })
+
+    const nevim = await result.json()
+    router.push("/uspech/" + nevim.id)
+    console.log(nevim.id)
   }
 
   const isValidEmail = (email: string) => {
@@ -125,7 +131,7 @@ export default function Calendar() {
   const selector = selectedDay ?
     <div>
       <div>
-        <TimePicker onTimeSelect={handleTimeSelect} bookedTimes={bookedTimes} selectedDate={selectedDay} setSelectedDate={setSelectedDay} />
+        <TimePicker onTimeSelect={handleTimeSelect} bookedTimes={bookedTimes} selectedDate={selectedDay} setSelectedDate={setSelectedDay} selectedTime={selectedTime} setSelectedTime={setSelectedTime} />
       </div>
     </div>
     : (
@@ -224,7 +230,7 @@ export default function Calendar() {
               <div className="text-red-500">
                 {formErrors.firstName && <div>{formErrors.firstName}</div>}
                 {formErrors.lastName && <div>{formErrors.lastName}</div>}
-                {formErrors.email && email === ''  && <div>{formErrors.email}</div>}
+                {formErrors.email && email === '' && <div>{formErrors.email}</div>}
                 {formErrors.selectedTime && <div>{formErrors.selectedTime}</div>}
                 {email !== '' && !isValidEmail(email) &&
                   <div className="flex justify-center text-red-500 mb-4">* Neplatný formát e-mailu.</div>
