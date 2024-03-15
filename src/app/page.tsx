@@ -33,9 +33,10 @@ export default function Home() {
 
       </main>
 
+      <div className='w-full fixed bottom-0'>
+        <Footer />
+      </div>
 
-
-      <Footer />
     </div>
   );
 }

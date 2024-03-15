@@ -25,7 +25,10 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+      <div className='w-full fixed bottom-0'>
+        <Footer />
+      </div>
+
     </div>
   );
 }
