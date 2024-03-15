@@ -1,7 +1,7 @@
 services:
     database:
         image: mysql:8.0
-        container_name: pichamtosql
+        container_name: reservation_sql
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: strongpassword

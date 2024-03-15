@@ -71,8 +71,13 @@ export default function Calendar() {
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    clearFormError('email');
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+    if (newEmail === '' || !isValidEmail(newEmail)) {
+      setFormErrors({ ...formErrors, email: '* E-mail je povinný.' });
+    } else {
+      clearFormError('email');
+    }
   };
 
   const handlePlaceChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -84,10 +89,10 @@ export default function Calendar() {
   const handleSubmit = async () => {
     if (!firstName || !lastName || !email || !selectedTime) {
       setFormErrors({
-        firstName: !firstName ? 'Jméno je povinné.' : '',
-        lastName: !lastName ? 'Příjmení je povinné.' : '',
-        email: !email ? 'E-mail je povinný.' : isValidEmail(email) ? '' : 'Neplatný formát e-mailu.',
-        selectedTime: !selectedTime ? 'Čas je povinný.' : '',
+        firstName: !firstName ? '* Jméno je povinné.' : '',
+        lastName: !lastName ? '* Příjmení je povinné.' : '',
+        email: !email ? '* E-mail je povinný.' : isValidEmail(email) ? '' : '* Neplatný formát e-mailu.',
+        selectedTime: !selectedTime ? '* Čas je povinný.' : '',
       });
       return;
     }
@@ -106,7 +111,7 @@ export default function Calendar() {
   }
 
   const isValidEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return email === '' || /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
   };
 
   const clearFormError = (field: string) => {
@@ -147,8 +152,8 @@ export default function Calendar() {
   };
 
   const formatCaption = (month: Date, options?: { locale?: Locale }) => {
-    const formattedMonth = format(month, 'LLLL', { locale: options?.locale }); // Formátujeme název měsíce s velkým počátečním písmenem
-    return formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1); // Zajistíme, že první písmeno bude velké
+    const formattedMonth = format(month, 'LLLL', { locale: options?.locale }); //upravení kalendáře do české podoby
+    return formattedMonth.charAt(0).toUpperCase() + formattedMonth.slice(1);
   };
 
   return (
@@ -190,30 +195,43 @@ export default function Calendar() {
           {selector}
         </div>
 
-        <div className='flex flex-col p-2'>
-          <div className='flex flex-col lg:flex-row justify-evenly'>
-            <div className='flex justify-center mb-4'>
-              <input className='border-2 rounded-md border-customColor p-2 w-64' id='jmeno' type="text" placeholder="Jméno" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
-              {formErrors.firstName && <span className="text-red-500">{formErrors.firstName}</span>}
+        <div className='flex flex-col'>
+          <div className='flex flex-col p-2'>
+            {/* Jméno a Příjmení */}
+            <div className='flex flex-col md:flex-row justify-evenly'>
+              <div className='flex justify-center mb-4'>
+                <input className={`border-2 rounded-md border-customColor p-2 w-64 ${formErrors.firstName ? 'border-red-500' : ''}`} id='jmeno' type="text" placeholder="Jméno" value={firstName} onChange={handleFirstNameChange} autoComplete="given-name" />
+              </div>
+              <div className='flex justify-center mb-4'>
+                <input className={`border-2 rounded-md border-customColor p-2 w-64 ${formErrors.lastName ? 'border-red-500' : ''}`} id='prijmeni' type="text" placeholder="Příjmení" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
+              </div>
             </div>
 
-            <div className='flex justify-center mb-4'>
-              <input className='border-2 rounded-md border-customColor p-2 w-64' id='prijmeni' type="text" placeholder="Příjmení" value={lastName} onChange={handleLastNameChange} autoComplete="family-name" />
-              {formErrors.lastName && <span className="text-red-500">{formErrors.lastName}</span>}
+            {/* Email a button */}
+            <div className='flex flex-col md:flex-row justify-evenly mb-4'>
+              <div className='flex justify-center mb-4'>
+                <input className={`border-2 rounded-md border-customColor p-2 w-64 ${formErrors.email ? 'border-red-500' : ''}`} id='email' type="text" placeholder="Email" value={email} onChange={handleEmailChange} autoComplete="email" />
+              </div>
+              <div className='flex justify-center mb-4'>
+                <button disabled={!selectedTime} className={`border-2 rounded-lg bg-customColor border-customColor text-white p-2 w-64 ${!selectedTime ? 'bg-gray-400 border-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
+                  Rezervovat
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div className='flex flex-col lg:flex-row justify-evenly mb-4'>
-            <div className='flex justify-center'>
-              <input className='border-2 rounded-md border-customColor p-2 w-64' id='email' type="text" placeholder="Email" value={email} onChange={handleEmailChange} autoComplete="email" />
-              {formErrors.email && <span className="text-red-500">{formErrors.email}</span>}
+            {/* Shrnutí chyb */}
+            <div className="flex justify-center">
+              <div className="text-red-500">
+                {formErrors.firstName && <div>{formErrors.firstName}</div>}
+                {formErrors.lastName && <div>{formErrors.lastName}</div>}
+                {formErrors.email && email === ''  && <div>{formErrors.email}</div>}
+                {formErrors.selectedTime && <div>{formErrors.selectedTime}</div>}
+                {email !== '' && !isValidEmail(email) &&
+                  <div className="flex justify-center text-red-500 mb-4">* Neplatný formát e-mailu.</div>
+                }
+              </div>
             </div>
 
-            <div className='flex justify-center'>
-              <button disabled={!selectedTime || !!formErrors.firstName || !!formErrors.lastName || !!formErrors.email || !!formErrors.selectedTime} className={`border-2 rounded-lg bg-customColor border-customColor text-white p-2 w-64 ${!selectedTime && !formErrors.firstName && !formErrors.lastName && !formErrors.email && !formErrors.selectedTime ? 'bg-gray-400 border-gray-400 cursor-not-allowed' : ''}`} onClick={handleSubmit}>
-                Rezervovat
-              </button>
-            </div>
           </div>
         </div>
 
