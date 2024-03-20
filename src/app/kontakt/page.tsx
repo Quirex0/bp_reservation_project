@@ -51,15 +51,56 @@ export default function Kontakt() {
       <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Jak mě můžete kontaktovat?</h2>
     </div>
 
-
-    <div className='flex justify-center'>
-      <EmailForm />
-    </div>
-
-    <div>
-      <div className='flex justify-center'>
-        <p>Telefon</p>
-        <p>5646</p>
+    <div className='flex flex-col lg:flex-row justify-center items-center'>
+      <div className='flex flex-col lg:mr-20'>
+        <h2 className='text-2xl m-4 font-serif'>Kontaktní informace:</h2>
+        <div className='flex flex-col'>
+          <div className='flex flex-row items-center'>
+            <img
+              src="/telephone.png"
+              alt="location pin"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
+            <p className='text-xl m-2'> +420 724 557 167</p>
+          </div>
+          <div className='flex flex-row items-center'>
+            <img
+              src="/email.png"
+              alt="location pin"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
+            <p className='text-xl m-2'> mouce@seznam.cz</p>
+          </div>
+          <div className='flex flex-row items-center'>
+            <img
+              src="/messenger.png"
+              alt="location pin"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
+            <p className='text-xl m-2'> jitka mouckova</p>
+          </div>
+          <div className='flex flex-row items-center'>
+            <img
+              src="/instagram.png"
+              alt="location pin"
+              width={20}
+              height={20}
+              className="mr-2"
+            />
+            <p className='text-xl m-2'> jitka mouckova</p>
+          </div>
+        </div>
+      </div>
+      <div className='flex flex-col m-4 lg:ml-20'>
+        <div>
+          <EmailForm />
+        </div>
       </div>
     </div>
 

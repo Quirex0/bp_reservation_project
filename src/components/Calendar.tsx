@@ -7,7 +7,6 @@ import 'react-day-picker/dist/style.css';
 import { Locale } from 'date-fns';
 import TimePicker from './TimePicker'; // Import TimePicker komponenty
 import { useRouter } from 'next/navigation';
-import nodemailer from 'nodemailer';
 
 
 export default function Calendar() {
