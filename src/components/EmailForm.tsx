@@ -48,7 +48,7 @@ const EmailForm = () => {
 
                 <div className='flex flex-col md:flex-row'>
                     <div className='flex justify-between flex-col md:m-2'>
-                        <label className='text-lg my-2' htmlFor="email">Váš dotaz:</label>
+                        <label className='text-lg my-2' htmlFor="content">Váš dotaz:</label>
                         <input className='border-2 rounded-md border-customColor p-2' id="content" name="content" />
                     </div>
                     <div className='flex justify-between flex-col md:m-2'>

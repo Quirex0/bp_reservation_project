@@ -12,28 +12,26 @@ import {
 import * as React from "react";
 
 interface WelcomeEmailProps {
-  firstName: string;
+  firstName: string,
+  content: string,
 }
 
 
-export const WelcomeEmail = ({ firstName }: WelcomeEmailProps) => (
+export const WelcomeEmail = ({ firstName, content }: WelcomeEmailProps) => (
   <Html>
     <Head />
     <Preview>Úspěšná rezervace</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Heading style={h1}>Rezervace byla úspěšná!</Heading>
-        <Text style={{ ...text, marginBottom: "14px" }}>
-          Děkujeme za Vaši rezervaci.
-        </Text>
+        <Heading style={h1}> {firstName} má dotaz!</Heading>
 
         <Text style={{ ...text, margin: "14px" }}>
-          Souhrn:
+          {content}
         </Text>
 
         <Text style={footer}>
           S pozdravem, <br />
-          Jitka Moučková
+          {firstName}
         </Text>
       </Container>
     </Body>

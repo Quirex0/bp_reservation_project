@@ -6,7 +6,7 @@ import { WelcomeEmail } from '@/emails/Welcome';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
-	const { firstName, email } = await request.json();
+	const { firstName, email, content } = await request.json();
 
 	try {
 		await resend.emails.send({
@@ -14,7 +14,8 @@ export async function POST(request: Request) {
 			to: email,
 			subject: 'hello world',
 			react: WelcomeEmail({
-				firstName
+				firstName,
+				content,
 			})
 		});
 		return NextResponse.json({
