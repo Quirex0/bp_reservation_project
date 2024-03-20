@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Maps from '@/components/Maps';
+import EmailForm from '@/components/EmailForm';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -48,6 +49,11 @@ export default function Kontakt() {
 
     <div className='flex justify-center my-12'>
       <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Jak mě můžete kontaktovat?</h2>
+    </div>
+
+
+    <div className='flex justify-center'>
+      <EmailForm />
     </div>
 
     <div>

@@ -7,6 +7,7 @@ import 'react-day-picker/dist/style.css';
 import { Locale } from 'date-fns';
 import TimePicker from './TimePicker'; // Import TimePicker komponenty
 import { useRouter } from 'next/navigation';
+import nodemailer from 'nodemailer';
 
 
 export default function Calendar() {
@@ -111,9 +112,12 @@ export default function Calendar() {
       })
     })
 
-    const nevim = await result.json()
-    router.push("/uspech/" + nevim.id)
-    console.log(nevim.id)
+    const done = await result.json()
+    router.push("/uspech/" + done.id)
+    console.log(done.id)
+
+
+
   }
 
   const isValidEmail = (email: string) => {

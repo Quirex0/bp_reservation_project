@@ -12,7 +12,7 @@ export default async function Uspech({ params }: {
 }) {
 
     const info = await prisma.reservation.findFirst({
-        where:{
+        where: {
             id: params.id,
         }
     })
@@ -33,11 +33,27 @@ export default async function Uspech({ params }: {
                 <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Rezervace byla úspěšně vytvořena</h2>
             </div>
 
-            <div className='flex justify-center'>
-                <h3 className='lg:text-3xl md:text-2xl text-xl'>Shrnutí:</h3>
-                <div>
-                    Jméno: {info?.firstName}
+            <div className='flex justify-evenly'>
+                <div className='flex flex-col'>
+                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl'>Shrnutí:</h3>
+
+                    <div className='flex justify-center flex-col ml-6 my-2'>
+                        <div>
+                            {info?.firstName} {info?.lastName}
+                        </div>
+                        <div>
+                            {info?.email}
+                        </div>
+                        <div>
+                            {info?.place}
+                        </div>
+                        <div>
+                            {info?.date?.toString()} // Convert the date to a string
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
             <div className='w-full fixed bottom-0'>
