@@ -2,9 +2,25 @@ import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import prisma from '@/utils/prisma';
+import { format } from 'date-fns';
+import { cs } from 'date-fns/locale';
+
 
 export const metadata: Metadata = {
     title: 'Masaze-jm',
+}
+
+function getPlaceName(code: string): string {
+    switch (code) {
+        case 'Praha_8_Bohnice':
+            return 'Praha 8 - Bohnice';
+        case 'Praha_8_Karlin':
+            return 'Praha 8 - Karlín';
+        case 'Plzen':
+            return 'Plzeň';
+        default:
+            return code;
+    }
 }
 
 export default async function Uspech({ params }: {
@@ -17,6 +33,7 @@ export default async function Uspech({ params }: {
         }
     })
     console.log(info)
+
 
     return (
         <div>
@@ -37,18 +54,20 @@ export default async function Uspech({ params }: {
                 <div className='flex flex-col'>
                     <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl'>Shrnutí:</h3>
 
-                    <div className='flex justify-center flex-col ml-6 my-2'>
-                        <div>
+                    <div className='flex justify-center flex-col my-2'>
+                        <div className='flex justify-center text-lg'>
                             {info?.firstName} {info?.lastName}
                         </div>
-                        <div>
+                        <div className='flex justify-center text-lg'>
                             {info?.email}
                         </div>
-                        <div>
-                            {info?.place}
+                        <div className='flex justify-center text-lg'>
+                            {info?.place && getPlaceName(info.place)}
                         </div>
-                        <div>
-                            {info?.date?.toString()} // Convert the date to a string
+                        <div className='flex justify-center text-lg'>
+                            {info?.date ?
+                                `${info.date.getDate()}. ${info.date.getMonth() + 1}. ${info.date.getFullYear()} ${info.date.getHours() - 1}:${info.date.getMinutes().toString().padStart(2, '0')}`
+                                : ''}
                         </div>
                     </div>
 
