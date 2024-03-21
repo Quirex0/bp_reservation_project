@@ -49,10 +49,10 @@ const EmailForm = () => {
                 <div className='flex flex-col md:flex-row'>
                     <div className='flex justify-between flex-col md:m-2'>
                         <label className='text-lg my-2' htmlFor="content">Váš dotaz:</label>
-                        <input className='border-2 rounded-md border-customColor p-2' id="content" name="content" />
+                        <textarea className='border-2 rounded-md border-customColor px-5' id="content" name="content" />
                     </div>
                     <div className='flex justify-between flex-col md:m-2'>
-                        <button className='border-2 rounded-lg bg-customColor border-customColor text-white p-2 mt-4 md:mt-12 w-60' disabled={state === 'loading'}>
+                        <button className='border-2 rounded-lg bg-customColor border-customColor text-white p-3 mt-8 md:mt-12 w-60' disabled={state === 'loading'}>
                             Odeslat
                         </button>
                     </div>

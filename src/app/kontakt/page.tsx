@@ -61,7 +61,7 @@ export default function Kontakt() {
               alt="location pin"
               width={20}
               height={20}
-              className="mr-2"
+              className="mr-2 ml-5"
             />
             <p className='text-xl m-2'> +420 724 557 167</p>
           </div>
@@ -71,29 +71,9 @@ export default function Kontakt() {
               alt="location pin"
               width={20}
               height={20}
-              className="mr-2"
+              className="mr-2 ml-5"
             />
             <p className='text-xl m-2'> mouce@seznam.cz</p>
-          </div>
-          <div className='flex flex-row items-center'>
-            <img
-              src="/messenger.png"
-              alt="location pin"
-              width={20}
-              height={20}
-              className="mr-2"
-            />
-            <p className='text-xl m-2'> jitka mouckova</p>
-          </div>
-          <div className='flex flex-row items-center'>
-            <img
-              src="/instagram.png"
-              alt="location pin"
-              width={20}
-              height={20}
-              className="mr-2"
-            />
-            <p className='text-xl m-2'> jitka mouckova</p>
           </div>
         </div>
       </div>
