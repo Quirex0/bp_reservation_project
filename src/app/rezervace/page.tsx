@@ -25,7 +25,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='w-full max-xl:fixed max-xl:bottom-0'>
+      <div className='w-full xl:fixed xl:bottom-0'>
         <Footer />
       </div>
 

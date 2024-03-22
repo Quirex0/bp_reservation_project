@@ -52,7 +52,7 @@ export default async function Uspech({ params }: {
 
             <div className='flex justify-evenly'>
                 <div className='flex flex-col'>
-                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl'>Shrnutí:</h3>
+                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl mb-4'>Následující shrnutí bylo zasláno i na Vaši emailovou adresu.:</h3>
 
                     <div className='flex justify-center flex-col my-2'>
                         <div className='flex justify-center text-lg'>

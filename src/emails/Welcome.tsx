@@ -14,13 +14,14 @@ import * as React from "react";
 interface WelcomeEmailProps {
   firstName: string,
   content: string,
+  email: string
 }
 
 
-export const WelcomeEmail = ({ firstName, content }: WelcomeEmailProps) => (
+export const WelcomeEmail = ({ firstName, content, email }: WelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>Úspěšná rezervace</Preview>
+    <Preview>Zpětná vazba z webu</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={h1}> {firstName} má dotaz!</Heading>
@@ -32,6 +33,8 @@ export const WelcomeEmail = ({ firstName, content }: WelcomeEmailProps) => (
         <Text style={footer}>
           S pozdravem, <br />
           {firstName}
+
+          E-mail: {email}
         </Text>
       </Container>
     </Body>

@@ -25,11 +25,15 @@ const EmailForm = () => {
             method: 'POST',
             body: JSON.stringify({
                 firstName: formData.firstName,
-                email: formData.email
+                email: formData.email,
+                content: formData.content
             })
         })
 
+
         setState('ready');
+
+        window.location.href = '/dotaz';
     }
 
     return (

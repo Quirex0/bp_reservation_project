@@ -100,7 +100,7 @@ export default function Calendar() {
     }
 
     setFormErrors({});
-    
+
     const result = await fetch("/api/createReservation", {
       method: "POST",
       body: JSON.stringify({
@@ -117,7 +117,16 @@ export default function Calendar() {
     router.push("/uspech/" + done.id)
     console.log(done.id)
 
-
+    await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        place: place,
+        date: selectedTime?.toISOString()
+      })
+    })
 
   }
 
