@@ -31,6 +31,6 @@ export async function GET(req: NextRequest) {
     }
     catch (err) {
         console.log(err)
-        return new Response("error", { status: 500 })
+        return new Response(err , { status: 500 })
     }
 }
