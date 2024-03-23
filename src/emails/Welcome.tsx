@@ -33,7 +33,7 @@ export const WelcomeEmail = ({ firstName, content, email }: WelcomeEmailProps) =
         <Text >
           S pozdravem, <br />
           {firstName}
-
+          <br />
           E-mail: {email}
         </Text>
       </Container>

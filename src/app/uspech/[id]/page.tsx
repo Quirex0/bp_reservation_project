@@ -66,7 +66,7 @@ export default async function Uspech({ params }: {
                         </div>
                         <div className='flex justify-center text-lg'>
                             {info?.date ?
-                                `${info.date.getDate()}. ${info.date.getMonth() + 1}. ${info.date.getFullYear()} ${info.date.getHours() - 1}:${info.date.getMinutes().toString().padStart(2, '0')}`
+                                `${info.date.getDate()}. ${info.date.getMonth() + 1}. ${info.date.getFullYear()} ${info.date.getHours()}:${info.date.getMinutes().toString().padStart(2, '0')}`
                                 : ''}
                         </div>
                     </div>
