@@ -33,9 +33,7 @@ function getPlaceName(code: string): string {
 }
 
 export const ReservationEmail = ({ firstName, lastName, email, place, date }: ReservationEmailProps) => {
-  const dateObj = new Date(date);
-  const formattedDate = `${("0" + dateObj.getDate()).slice(-2)} ${("0" + (dateObj.getMonth() + 1)).slice(-2)} ${dateObj.getFullYear()} ${("0" + dateObj.getHours()).slice(-2)}:${("0" + dateObj.getMinutes()).slice(-2)}`;
-
+  const formattedDate = new Date(date).toLocaleDateString('cs', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
 
 
   return (
