@@ -18,10 +18,6 @@ const NavLinks = () => {
         Ceník
       </Link>
       <Link className={styles.navLinks + ' hidden md:block'}
-        href="/about">
-        O mně
-      </Link>
-      <Link className={styles.navLinks + ' hidden md:block'}
         href="/provozovny">
         Provozovny
       </Link>
