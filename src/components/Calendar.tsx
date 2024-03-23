@@ -29,7 +29,7 @@ export default function Calendar() {
 
       const isoDateString = `${selectedDay.getFullYear()}-${(selectedDay.getMonth() + 1).toString().padStart(2, '0')}-${selectedDay.getDate().toString().padStart(2, '0')}T00:00:00`;
 
-      const url = `http://localhost:3000/api/getAvailable?date=${isoDateString}&place=${place}`;
+      const url = `/api/getAvailable?date=${isoDateString}&place=${place}`;
       const response = await fetch(url);
       const body = await response.json();
 
