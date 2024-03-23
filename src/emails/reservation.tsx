@@ -33,8 +33,15 @@ function getPlaceName(code: string): string {
 }
 
 export const ReservationEmail = ({ firstName, lastName, email, place, date }: ReservationEmailProps) => {
-  const formattedDate = new Date(date).toLocaleDateString('cs', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+  const formattedDate = new Date(date);
 
+  const day = formattedDate.getDate().toString().padStart(2, '0'); // Get day and pad with leading zero if necessary
+  const month = (formattedDate.getMonth() + 1).toString().padStart(2, '0'); // Get month (+1 because months are zero-indexed) and pad with leading zero if necessary
+  const year = formattedDate.getFullYear(); // Get full year
+  const hours = formattedDate.getHours().toString().padStart(2, '0'); // Get hours and pad with leading zero if necessary
+  const minutes = formattedDate.getMinutes().toString().padStart(2, '0'); // Get minutes and pad with leading zero if necessary
+
+  const formattedDateString = `${day}, ${month}, ${year} ${hours}:${minutes}`;
 
   return (
 
@@ -54,7 +61,7 @@ export const ReservationEmail = ({ firstName, lastName, email, place, date }: Re
             {firstName} {lastName} <br />
             {email} <br />
             {place && getPlaceName(place)} <br />
-            {formattedDate}
+            {formattedDateString}
           </Text>
 
           <Text >
