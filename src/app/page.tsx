@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Navbar from '../components/Navbar';
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -22,7 +23,7 @@ export default function Home() {
         <div className='flex justify-evenly flex-col lg:flex-row'>
           <div className='flex justify-center items-center'>
             <div className='m-4'>
-              <img className="rounded-2xl h-auto max-w-xs md:max-w-sm" src="/hory.jpg" alt="vizitky" />
+              <Image className="rounded-2xl h-auto max-w-xs md:max-w-sm" src="/hory.jpg" alt="vizitky" width={300} height={300} />
             </div>
           </div>
           <div className='flex flex-col justify-center items-center'>
@@ -73,7 +74,7 @@ export default function Home() {
 
         </div>
 
-        <p className='text-xl font-semibold flex justify-center m-10'>"Naší povinností je udržovat si zdravé tělo, protože bez toho nemůžeme mít silnou a zdravou mysl." - JM</p>
+        <p className='text-xl font-semibold flex justify-center m-10'>&quot;Naší povinností je udržovat si zdravé tělo, protože bez toho nemůžeme mít silnou a zdravou mysl.&quot; - JM</p>
 
       </main>
 

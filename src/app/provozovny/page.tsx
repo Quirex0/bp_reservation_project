@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -51,7 +52,7 @@ export default function Provozovny() {
                     <p className="lg:text-xl text-md text-gray-700 mb-6">{place.description}</p>
                   </div>
                   <div className="flex justify-center">
-                    <img className='rounded-2xl w-3/5 lg:w-4/5 h-auto' src={place.image} alt={place.title} />
+                    <Image className='rounded-2xl w-3/5 lg:w-4/5 h-auto' src={place.image} alt={place.title} width={300} height={300}/>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Masaze-jm',
@@ -57,7 +58,7 @@ export default function Sluzby() {
           </div>
           <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
             <div className="flex lg:justify-end justify-center mb-6">
-              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/jitka_3.jpg" alt="Shiatsu" />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/jitka_3.jpg" alt="Shiatsu" width={300} height={300} />
             </div>
             <div className="flex justify-center lg:w-1/3 items-center">
               <div className="flex flex-col justify-center w-3/4 xl:text-lg md:text-base text-sm">
@@ -105,7 +106,7 @@ export default function Sluzby() {
               </div>
             </div>
             <div className="flex lg:justify-end justify-center">
-              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/lehatko_plzen.jpg" alt="Celková masáž" />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/lehatko_plzen.jpg" alt="Celková masáž" width={300} height={300} />
             </div>
           </div>
         </div>
@@ -116,7 +117,7 @@ export default function Sluzby() {
           </div>
           <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
             <div className="flex lg:justify-end justify-center mb-6">
-              <img className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/med.jpg" alt="Medová masáž" />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/med.jpg" alt="Medová masáž" width={300} height={300} />
             </div>
             <div className="flex justify-center lg:w-1/3 items-center">
               <div className="flex justify-center items-center w-3/4 xl:text-lg md:text-base text-sm">
@@ -155,7 +156,7 @@ export default function Sluzby() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <img className='rounded-2xl w-auto h-max' src="/kranio.jpg" alt="Kranio terapie" />
+              <Image className='rounded-2xl w-auto h-max' src="/kranio.jpg" alt="Kranio terapie" width={300} height={300} />
             </div>
           </div>
         </div>
@@ -177,7 +178,7 @@ export default function Sluzby() {
                 </div>
               </div>
                 <div className="flex justify-center">
-                  <img className='rounded-2xl h-auto max-w-xs md:max-w-sm' src={tool.image} alt={tool.title} />
+                  <Image className='rounded-2xl h-auto max-w-xs md:max-w-sm' src={tool.image} alt={tool.title} width={300} height={300}/>
                 </div>
             </div>
           ))}

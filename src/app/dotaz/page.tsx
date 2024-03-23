@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'Masaze-jm',
@@ -38,7 +38,7 @@ export default function Dotaz({ }) {
                 <h2 className='text-2xl m-4 font-serif'>Kontaktní informace:</h2>
                 <div className='flex flex-col'>
                     <div className='flex flex-row items-center'>
-                        <img
+                        <Image
                             src="/telephone.png"
                             alt="location pin"
                             width={20}
@@ -48,7 +48,7 @@ export default function Dotaz({ }) {
                         <p className='text-xl m-2'> +420 724 557 167</p>
                     </div>
                     <div className='flex flex-row items-center'>
-                        <img
+                        <Image
                             src="/email.png"
                             alt="location pin"
                             width={20}

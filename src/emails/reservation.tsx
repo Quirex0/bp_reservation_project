@@ -42,14 +42,14 @@ export const ReservationEmail = ({ firstName, lastName, email, place, date }: Re
     <Html>
       <Head />
       <Preview>Úspěšná rezervace</Preview>
-      <Body style={main}>
-        <Container style={container}>
-          <Heading style={h1}>Rezervace byla úspěšná!</Heading>
-          <Text style={{ ...text, marginBottom: "14px" }}>
+      <Body >
+        <Container >
+          <Heading >Rezervace byla úspěšná!</Heading>
+          <Text >
             Děkujeme za Vaši rezervaci.
           </Text>
 
-          <Text style={{ ...text, margin: "14px" }}>
+          <Text >
             Souhrn: <br />
             {firstName} {lastName} <br />
             {email} <br />
@@ -57,7 +57,7 @@ export const ReservationEmail = ({ firstName, lastName, email, place, date }: Re
             {formattedDate}
           </Text>
 
-          <Text style={footer}>
+          <Text >
             S pozdravem, <br />
             Jitka Moučková
           </Text>
@@ -68,43 +68,4 @@ export const ReservationEmail = ({ firstName, lastName, email, place, date }: Re
 }
 
 export default ReservationEmail;
-
-const main = {
-  backgroundColor: "#ffffff",
-};
-
-const container = {
-  paddingLeft: "12px",
-  paddingRight: "12px",
-  margin: "0 auto",
-};
-
-const h1 = {
-  color: "#333",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "24px",
-  fontWeight: "bold",
-  margin: "40px 0",
-  padding: "0",
-};
-
-
-const text = {
-  color: "#333",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "14px",
-  margin: "24px 0",
-};
-
-const footer = {
-  color: "#333",
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-  fontSize: "14px",
-  lineHeight: "22px",
-  marginTop: "12px",
-  marginBottom: "24px",
-};
 

@@ -78,7 +78,7 @@ export default function Cenik() {
             <div className='flex flex-col xl:text-lg md:text-base text-sm'>
               <div className='px-4 my-1'>Tělové a ušní svíce - příplatek  50 - 100 Kč </div>
 
-              <div className='px-4 my-1'>Masážní pistole "BODY SONIC" </div>
+              <div className='px-4 my-1'>Masážní pistole &quot;BODY SONIC&quot; </div>
               <div className='px-4 my-1'>Fonoforéza</div>
               <div className='px-4 my-1'>Baňky </div>
               <div className='px-4 my-1'>Lávové kameny </div>
@@ -97,7 +97,7 @@ export default function Cenik() {
               <p>Poukaz je možné zakoupit pouze osobně.</p>
             </div>
             <div className='flex'>
-              <img src="/poukazka.jpg"
+              <Image src="/poukazka.jpg"
                 alt="poukazka"
                 width={500}
                 height={400}
