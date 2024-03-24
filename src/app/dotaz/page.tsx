@@ -23,42 +23,46 @@ export default function Dotaz({ }) {
                 </div>
             </div>
 
-            <div className='flex justify-center my-12'>
-                <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Dotaz byl úspěšně odeslán</h2>
-            </div>
 
-            <div className='flex justify-evenly'>
-                <div className='flex flex-col'>
-                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl mb-4'>Děkujeme za zpětnou vazbu.</h3>
-                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl mb-4'>Případně můžete využít kontaktní údaje níže. </h3>
+            <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 mt-10 flex justify-center items-center flex-col'>
+                <div className='flex justify-center my-12'>
+                    <h2 className='lg:text-5xl md:text-4xl text-3xl md:text-nowrap text-customColor text-center font-serif md:mt-28'>Dotaz byl úspěšně odeslán</h2>
+                </div>
+
+                <div className='flex justify-evenly'>
+                    <div className='flex flex-col'>
+                        <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl text-center mb-4'>Děkujeme za zpětnou vazbu.</h3>
+                        <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl md:text-nowrap text-center mb-4'>Případně můžete využít kontaktní údaje níže. </h3>
+                    </div>
+                </div>
+
+                <div className='flex justify-center items-center flex-col lg:mr-20 mt-6 mb-16'>
+                    <h2 className='text-2xl m-4 font-serif text-center'>Kontaktní informace:</h2>
+                    <div className='flex flex-col'>
+                        <div className='flex flex-row items-center'>
+                            <Image
+                                src="/telephone.png"
+                                alt="location pin"
+                                width={20}
+                                height={20}
+                                className="mr-2 ml-5"
+                            />
+                            <p className='text-xl m-2'> +420 724 557 167</p>
+                        </div>
+                        <div className='flex flex-row items-center'>
+                            <Image
+                                src="/email.png"
+                                alt="location pin"
+                                width={20}
+                                height={20}
+                                className="mr-2 ml-5"
+                            />
+                            <p className='text-xl m-2'> mouce@seznam.cz</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className='flex justify-center items-center flex-col lg:mr-20 mt-6'>
-                <h2 className='text-2xl m-4 font-serif'>Kontaktní informace:</h2>
-                <div className='flex flex-col'>
-                    <div className='flex flex-row items-center'>
-                        <Image
-                            src="/telephone.png"
-                            alt="location pin"
-                            width={20}
-                            height={20}
-                            className="mr-2 ml-5"
-                        />
-                        <p className='text-xl m-2'> +420 724 557 167</p>
-                    </div>
-                    <div className='flex flex-row items-center'>
-                        <Image
-                            src="/email.png"
-                            alt="location pin"
-                            width={20}
-                            height={20}
-                            className="mr-2 ml-5"
-                        />
-                        <p className='text-xl m-2'> mouce@seznam.cz</p>
-                    </div>
-                </div>
-            </div>
 
             <div className='w-full fixed bottom-0'>
                 <Footer />

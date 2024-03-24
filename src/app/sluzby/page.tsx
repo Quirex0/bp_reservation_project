@@ -58,7 +58,7 @@ export default function Sluzby() {
           </div>
           <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
             <div className="flex lg:justify-end justify-center mb-6">
-              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/jitka_3.jpg" alt="Shiatsu" width={300} height={300} />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-sm xl:max-w-md' src="/jitka_3.jpg" alt="Shiatsu" width={450} height={500} priority/>
             </div>
             <div className="flex justify-center lg:w-1/3 items-center">
               <div className="flex flex-col justify-center w-3/4 xl:text-lg md:text-base text-sm">
@@ -106,7 +106,7 @@ export default function Sluzby() {
               </div>
             </div>
             <div className="flex lg:justify-end justify-center">
-              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/lehatko_plzen.jpg" alt="Celková masáž" width={300} height={300} />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-sm xl:max-w-md' src="/lehatko_plzen.jpg" alt="Celková masáž" width={450} height={600} />
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function Sluzby() {
           </div>
           <div className="flex flex-col lg:flex-row justify-evenly lg:my-12 my-4">
             <div className="flex lg:justify-end justify-center mb-6">
-              <Image className='rounded-2xl h-auto max-w-xs md:max-w-md xl:max-w-lg' src="/med.jpg" alt="Medová masáž" width={300} height={300} />
+              <Image className='rounded-2xl h-auto max-w-xs md:max-w-sm xl:max-w-md' src="/med.jpg" alt="Medová masáž" width={450} height={600} />
             </div>
             <div className="flex justify-center lg:w-1/3 items-center">
               <div className="flex justify-center items-center w-3/4 xl:text-lg md:text-base text-sm">
@@ -156,7 +156,7 @@ export default function Sluzby() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <Image className='rounded-2xl w-auto h-max' src="/kranio.jpg" alt="Kranio terapie" width={300} height={300} />
+              <Image className='rounded-2xl w-auto h-max' src="/kranio.jpg" alt="Kranio terapie" width={450} height={600} />
             </div>
           </div>
         </div>
@@ -168,17 +168,17 @@ export default function Sluzby() {
       </div>
 
       <div className="flex justify-center">
-        <div className="max-w-screen-lg w-full px-4">
+        <div className="w-full">
           {tools.map((tool, index) => (
-            <div className={`flex flex-col lg:flex-row items-center justify-between ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'} my-12`} key={index}>
-              <div className="lg:w-1/2">
+            <div className={`flex flex-col lg:flex-row items-center justify-evenly ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'} my-12`} key={index}>
+              <div className="w-1/2 lg:w-1/3">
                 <div className="flex flex-col items-center justify-center">
                   <h2 className="lg:text-2xl text-lg font-bold mb-4">{tool.title}</h2>
-                  <p className="md:text-base text-sm text-gray-700 mb-8">{tool.description}</p>
+                  <p className="md:text-base text-sm p-2 text-gray-700 mb-8">{tool.description}</p>
                 </div>
               </div>
                 <div className="flex justify-center">
-                  <Image className='rounded-2xl h-auto max-w-xs md:max-w-sm' src={tool.image} alt={tool.title} width={300} height={300}/>
+                  <Image className='rounded-2xl h-auto xl:mx-28 max-w-xs lg:max-w-md' src={tool.image} alt={tool.title} width={350} height={500}/>
                 </div>
             </div>
           ))}

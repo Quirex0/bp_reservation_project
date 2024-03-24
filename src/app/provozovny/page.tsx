@@ -52,7 +52,7 @@ export default function Provozovny() {
                     <p className="lg:text-xl text-md text-gray-700 mb-6">{place.description}</p>
                   </div>
                   <div className="flex justify-center">
-                    <Image className='rounded-2xl w-3/5 lg:w-4/5 h-auto' src={place.image} alt={place.title} width={300} height={300}/>
+                    <Image className='rounded-2xl max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto' src={place.image} alt={place.title} width={550} height={700}/>
                   </div>
                 </div>
               </div>

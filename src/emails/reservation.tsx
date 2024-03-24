@@ -49,8 +49,8 @@ export const ReservationEmail = ({ firstName, lastName, email, place, date }: Re
       <Preview>Úspěšná rezervace</Preview>
       <Body >
         <Container >
-          <Heading >Rezervace byla úspěšná!</Heading>
-          <Text >
+          <Heading className="font-serif text-2xl" >Rezervace byla úspěšná!</Heading>
+          <Text className="text-xl">
             Děkujeme za Vaši rezervaci.
           </Text>
 

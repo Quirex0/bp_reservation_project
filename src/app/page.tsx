@@ -17,13 +17,13 @@ export default function Home() {
             Moje cesta
           </h1>
         </div>
-        <h2 className='flex justify-center font-serif underline underline-offset-8 text-5xl m-12'>
+        <h2 className='flex justify-center font-serif underline underline-offset-8 text-2xl md:text-5xl m-12'>
           Od sportu k masážím
         </h2>
         <div className='flex justify-evenly flex-col lg:flex-row'>
           <div className='flex justify-center items-center'>
             <div className='m-4'>
-              <Image className="rounded-2xl h-auto max-w-xs md:max-w-sm" src="/hory.jpg" alt="vizitky" width={300} height={300} />
+              <Image className="rounded-2xl h-auto max-w-xs md:max-w-sm" src="/hory.jpg" alt="hory" width={450} height={600}/>
             </div>
           </div>
           <div className='flex flex-col justify-center items-center'>

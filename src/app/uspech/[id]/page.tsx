@@ -36,7 +36,7 @@ export default async function Uspech({ params }: {
 
 
     return (
-        <div>
+        <div className='h-full'>
 
             <Navbar />
 
@@ -46,34 +46,37 @@ export default async function Uspech({ params }: {
                 </div>
             </div>
 
-            <div className='flex justify-center my-12'>
-                <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor font-serif'>Rezervace byla úspěšně vytvořena</h2>
-            </div>
+            <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 mt-4 md:mt-28 flex justify-center items-center flex-col'>
+                <div className='flex justify-center my-12'>
+                    <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor text-center font-serif'>Rezervace byla úspěšně vytvořena</h2>
+                </div>
 
-            <div className='flex justify-evenly'>
-                <div className='flex flex-col'>
-                    <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl mb-4'>Následující shrnutí bylo zasláno i na Vaši emailovou adresu.:</h3>
+                <div className='flex justify-evenly'>
+                    <div className='flex flex-col'>
+                        <h3 className='flex justify-center lg:text-3xl md:text-2xl text-xl text-center mb-4'>Následující shrnutí bylo zasláno i na Vaši emailovou adresu:</h3>
 
-                    <div className='flex justify-center flex-col my-2'>
-                        <div className='flex justify-center text-lg'>
-                            {info?.firstName} {info?.lastName}
+                        <div className='flex justify-center flex-col my-2 mb-20'>
+                            <div className='flex justify-center text-lg'>
+                                {info?.firstName} {info?.lastName}
+                            </div>
+                            <div className='flex justify-center text-lg'>
+                                {info?.email}
+                            </div>
+                            <div className='flex justify-center text-lg'>
+                                {info?.place && getPlaceName(info.place)}
+                            </div>
+                            <div className='flex justify-center text-lg'>
+                                {info?.date ?
+                                    `${info.date.getDate()}. ${info.date.getMonth() + 1}. ${info.date.getFullYear()} ${info.date.getHours()}:${info.date.getMinutes().toString().padStart(2, '0')}`
+                                    : ''}
+                            </div>
                         </div>
-                        <div className='flex justify-center text-lg'>
-                            {info?.email}
-                        </div>
-                        <div className='flex justify-center text-lg'>
-                            {info?.place && getPlaceName(info.place)}
-                        </div>
-                        <div className='flex justify-center text-lg'>
-                            {info?.date ?
-                                `${info.date.getDate()}. ${info.date.getMonth() + 1}. ${info.date.getFullYear()} ${info.date.getHours()}:${info.date.getMinutes().toString().padStart(2, '0')}`
-                                : ''}
-                        </div>
+
                     </div>
 
                 </div>
-
             </div>
+
 
             <div className='w-full fixed bottom-0'>
                 <Footer />
