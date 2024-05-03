@@ -19,14 +19,14 @@ export default function Dotaz({ }) {
 
             <div className='flex w-full flex-wrap justify-center items-center mb-4 bg-customColor'>
                 <div>
-                    <h1 className='lg:text-7xl md:text-5xl text-4xl text-white font-serif uppercase md:p-8 p-4 whitespace-nowrap font-medium '>Hotovo</h1>
+                    <h1 className='lg:text-6xl md:text-5xl text-4xl text-white font-serif uppercase md:p-8 p-4 whitespace-nowrap font-medium '>Hotovo</h1>
                 </div>
             </div>
 
 
-            <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 mt-10 flex justify-center items-center flex-col'>
+            <div className='xl:absolute xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2 xl:mt-24 mt-10 flex justify-center items-center flex-col'>
                 <div className='flex justify-center my-12'>
-                    <h2 className='lg:text-5xl md:text-4xl text-3xl md:text-nowrap text-customColor text-center font-serif md:mt-28'>Dotaz byl úspěšně odeslán</h2>
+                    <h2 className='lg:text-5xl md:text-4xl text-3xl md:text-nowrap text-customColor text-center font-serif md:mt-12'>Dotaz byl úspěšně odeslán</h2>
                 </div>
 
                 <div className='flex justify-evenly'>

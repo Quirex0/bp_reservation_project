@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -41,15 +40,13 @@ const Navbar = () => {
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
-
-    console.log(isOpen)
   };
 
   return (
     <div className="sticky top-0 z-[20] mx-auto flex w-full flex-wrap items-center justify-between bg-white">
       <div className="inline-block ml-12">
         <Link href="/">
-          <Image 
+          <Image
             src="/logo.jpg"
             alt="Logo"
             width={100}
@@ -58,20 +55,18 @@ const Navbar = () => {
           />
         </Link>
       </div>
+
       <div className='flex w-1/3 justify-end mr-8'>
-
         <div className="justify-between lg:flex">
-
           <div className="hidden lg:flex">
             <NavLinks />
           </div>
           <div className='lg:hidden'>
-            <button onClick={toggleNavbar}> {isOpen ? <X /> : <Menu />}
-
+            <button onClick={toggleNavbar}>
+              {isOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
-
       </div>
 
       {isOpen && (
@@ -81,10 +76,8 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
       <div className="sticky bg-customColor w-full h-6"></div>
     </div>
-    
   );
 };
 export default Navbar;

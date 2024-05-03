@@ -46,7 +46,7 @@ export default async function Uspech({ params }: {
                 </div>
             </div>
 
-            <div className='lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:-translate-y-1/2 mt-4 md:mt-28 flex justify-center items-center flex-col'>
+            <div className='xl:absolute xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2 mt-4 xl:mt-28 flex justify-center items-center flex-col'>
                 <div className='flex justify-center my-12'>
                     <h2 className='lg:text-5xl md:text-4xl text-3xl text-customColor text-center font-serif'>Rezervace byla úspěšně vytvořena</h2>
                 </div>

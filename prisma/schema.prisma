@@ -10,19 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Day {
-  id        String @id @default(cuid())
-  name      String // monday, tuesday, ...
-  dayOfWeek Int // @see getDay() documentation, 0 for Sunday, 1 for Monday, ...
-  openTime  String
-  closeTime String
-}
-
-model ClosedDay {
-  id   String   @id @default(cuid())
-  date DateTime @unique
-}
-
 enum Place {
   Praha_8_Bohnice
   Praha_8_Karlin

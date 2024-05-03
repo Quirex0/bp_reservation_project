@@ -5,7 +5,7 @@ import { cs } from 'date-fns/locale';
 import { DayPicker, SelectSingleEventHandler } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import { Locale } from 'date-fns';
-import TimePicker from './TimePicker'; // Import TimePicker komponenty
+import TimePicker from './TimePicker'; 
 import { useRouter } from 'next/navigation';
 
 
@@ -16,10 +16,10 @@ export default function Calendar() {
 
   const [selectedDay, setSelectedDay] = useState<Date>(tomorrow);
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
-  const [selectedTime, setSelectedTime] = useState<Date>(); // State pro uchování vybraného času
-  const [firstName, setFirstName] = useState<string>(''); // State pro uchování jména
-  const [lastName, setLastName] = useState<string>(''); // State pro uchování příjmení
-  const [email, setEmail] = useState<string>(''); // State pro uchování mailu
+  const [selectedTime, setSelectedTime] = useState<Date>(); 
+  const [firstName, setFirstName] = useState<string>(''); 
+  const [lastName, setLastName] = useState<string>(''); 
+  const [email, setEmail] = useState<string>(''); 
   const [place, setPlace] = useState<string>('Plzen');
   const [bookedTimes, setBookedTimes] = useState<string[]>([]);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
@@ -113,9 +113,8 @@ export default function Calendar() {
     })
 
     const done = await result.json()
-    console.log(done.date)
+    
     router.push("/uspech/" + done.id)
-    console.log(done.id)
 
     await fetch('/api/email', {
       method: 'POST',
@@ -158,7 +157,7 @@ export default function Calendar() {
     before: new Date(),
   };
 
-  const modifiersStyles = {
+  const modifiersStyles = { 
     selected: {
       fontWeight: 'bold',
       border: '2px solid #004D79',
@@ -205,7 +204,6 @@ export default function Calendar() {
             onMonthChange={setCurrentMonth}
             month={currentMonth}
           />
-
         </div>
       </div>
 

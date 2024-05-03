@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-
 import { WelcomeEmail } from '@/emails/Welcome';
 import { ReservationEmail } from '@/emails/reservation';
 
@@ -52,6 +51,4 @@ console.log(content)
 			status: 500
 		})
 	}
-
-
 }

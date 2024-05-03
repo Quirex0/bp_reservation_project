@@ -14,7 +14,7 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string,
         version: 'weekly',
-        libraries: ['marker'] // Přidáno načítání knihovny marker
+        libraries: ['marker']
       });
 
       const google = await loader.load();
