@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { WelcomeEmail } from '@/emails/Welcome';
-import { ReservationEmail } from '@/emails/reservation';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -10,21 +9,7 @@ export async function POST(request: Request) {
 console.log(content)
 
 	try {
-		if (content === undefined) {
-			await resend.emails.send({
-				from: process.env.MAIL_FROM || '',
-				to: [email, process.env.MY_MAIL],
-				subject: 'Rezervace masáže',
-				react: ReservationEmail({
-					firstName,
-					lastName,
-					email,
-					place,
-					date
-				})
-			});
-		}
-		else {
+		
 			await resend.emails.send({
 				from: process.env.MAIL_FROM || '',
 				to: process.env.MY_MAIL || '',
@@ -35,7 +20,7 @@ console.log(content)
 					content
 				})
 			});
-		}
+		
 		return NextResponse.json({
 			status: 'Ok'
 		}, {
