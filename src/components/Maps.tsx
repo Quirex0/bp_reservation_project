@@ -27,7 +27,6 @@ const Maps: React.FC<MapsProps> = ({ position }) => {
 
       const map = new google.maps.Map(mapRef.current as HTMLDivElement, mapOptions);  
 
-      // Vytvoření pokročilého markeru
       const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
         map: map,
         position: position,

@@ -12,10 +12,6 @@ const NavLinks = () => {
   return (
     <>
       <Link className={styles.navLinks}
-        href="/rezervace">
-        Rezervace
-      </Link>
-      <Link className={styles.navLinks}
         href="/sluzby">
         Služby
       </Link>
